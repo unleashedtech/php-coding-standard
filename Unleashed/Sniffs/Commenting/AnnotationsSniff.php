@@ -48,6 +48,15 @@ class AnnotationsSniff implements Sniff
      */
     public function process(File $phpcsFile, $stackPtr)
     {
+        // Don't apply to file docblocks
+        if (false !== $phpcsFile->findNext(
+                [T_NAMESPACE],
+                $stackPtr
+            )
+        ) {
+            return;
+        }
+
         $tokens = $phpcsFile->getTokens();
         $closer = $phpcsFile->findNext(T_DOC_COMMENT_CLOSE_TAG, $stackPtr);
 
