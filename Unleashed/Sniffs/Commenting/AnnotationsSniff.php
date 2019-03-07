@@ -19,7 +19,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 class AnnotationsSniff implements Sniff
 {
 
-    private static $_pattern = '/^@([^\\\(]+).*$/i';
+    private static $pattern = '/^@([^\\\(]+).*$/i';
 
     /**
      * Registers the tokens that this sniff wants to listen for.
@@ -49,11 +49,7 @@ class AnnotationsSniff implements Sniff
     public function process(File $phpcsFile, $stackPtr)
     {
         // Don't apply to file docblocks
-        if (false !== $phpcsFile->findNext(
-                [T_NAMESPACE],
-                $stackPtr
-            )
-        ) {
+        if (false !== $phpcsFile->findNext([T_NAMESPACE], $stackPtr)) {
             return;
         }
 
@@ -67,12 +63,12 @@ class AnnotationsSniff implements Sniff
         )
         ) {
             $first = preg_replace(
-                self::$_pattern,
+                self::$pattern,
                 '$1',
                 $tokens[$stackPtr]['content']
             );
             $second = preg_replace(
-                self::$_pattern,
+                self::$pattern,
                 '$1',
                 $tokens[$next]['content']
             );

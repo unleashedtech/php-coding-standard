@@ -67,7 +67,7 @@ class PropertyDeclarationSniff implements Sniff
         $wantedTokens = array(
             T_PUBLIC,
             T_PROTECTED,
-            T_PRIVATE
+            T_PRIVATE,
         );
 
         while ($scope) {
@@ -86,5 +86,4 @@ class PropertyDeclarationSniff implements Sniff
             }
         }
     }
-
 }

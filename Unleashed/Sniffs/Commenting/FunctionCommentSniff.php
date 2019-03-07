@@ -36,11 +36,8 @@ class FunctionCommentSniff extends Sniff
      *
      * @return void
      */
-    protected function processReturn(
-        File $phpcsFile,
-        $stackPtr,
-        $commentStart
-    ) {
+    protected function processReturn(File $phpcsFile, $stackPtr, $commentStart)
+    {
 
         if ($this->isInheritDoc($phpcsFile, $stackPtr)) {
             return;
@@ -73,7 +70,6 @@ class FunctionCommentSniff extends Sniff
                 }
             }
         }
-
     }
 
     /**
@@ -107,11 +103,8 @@ class FunctionCommentSniff extends Sniff
      *
      * @return void
      */
-    protected function processParams(
-        File $phpcsFile,
-        $stackPtr,
-        $commentStart
-    ) {
+    protected function processParams(File $phpcsFile, $stackPtr, $commentStart)
+    {
         if ($this->isInheritDoc($phpcsFile, $stackPtr)) {
             return;
         }

@@ -36,7 +36,6 @@ class AssignmentSpacingSniff implements Sniff
     public function register()
     {
         return Tokens::$assignmentTokens;
-
     }
 
     /**

@@ -36,7 +36,6 @@ class BinaryOperatorSpacingSniff implements Sniff
     public function register()
     {
         return Tokens::$comparisonTokens;
-
     }
 
     /**

@@ -41,7 +41,6 @@ class MultiLineArrayCommaSniff implements Sniff
                 T_ARRAY,
                 T_OPEN_SHORT_ARRAY,
                );
-
     }
 
     /**
@@ -64,7 +63,7 @@ class MultiLineArrayCommaSniff implements Sniff
             $closePtr = $open['bracket_closer'];
         }
 
-        if ($open['line'] <> $tokens[$closePtr]['line']) {
+        if ($open['line'] !== $tokens[$closePtr]['line']) {
             $arrayIsNotEmpty = $phpcsFile->findPrevious(
                 array(
                     T_WHITESPACE,
@@ -113,5 +112,4 @@ class MultiLineArrayCommaSniff implements Sniff
             }
         }
     }
-
 }

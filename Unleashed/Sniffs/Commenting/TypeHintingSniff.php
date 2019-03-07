@@ -18,14 +18,14 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  */
 class TypeHintingSniff implements Sniff
 {
-    private static $_blacklist = [
+    private static $blacklist = [
         'boolean' => 'bool',
         'integer' => 'int',
         'double' => 'float',
         'real' => 'float',
     ];
 
-    private static $_casts = [
+    private static $casts = [
         T_BOOL_CAST,
         T_INT_CAST,
         T_DOUBLE_CAST,
@@ -76,7 +76,7 @@ class TypeHintingSniff implements Sniff
                     $tokens[$type]['content']
                 )
             );
-        } elseif (in_array($tag['code'], self::$_casts)) {
+        } elseif (in_array($tag['code'], self::$casts)) {
             $hint = strtolower(
                 preg_replace(
                     '/\(([^\s]+)\)/',
@@ -86,25 +86,24 @@ class TypeHintingSniff implements Sniff
             );
         }
 
-        if (isset($hint) && isset(self::$_blacklist[$hint])) {
+        if (isset($hint) && isset(self::$blacklist[$hint])) {
             $error = sprintf(
                 'For type-hinting in PHPDocs and casting, use %s instead of %s',
-                self::$_blacklist[$hint],
+                self::$blacklist[$hint],
                 $hint
             );
 
             $fixable = $phpcsFile->addFixableError($error, $stackPtr, 'Invalid');
 
             if (true === $fixable) {
-
                 if ($fixPtr === $stackPtr) {
-                    $fixedContent = self::$_blacklist[$hint];
+                    $fixedContent = self::$blacklist[$hint];
                     $fixedContent = "({$fixedContent})";
                 } else {
                     $fixedContent = $tokens[$fixPtr]['content'];
                     $fixedContent = preg_replace(
                         "/^$hint/",
-                        self::$_blacklist[$hint],
+                        self::$blacklist[$hint],
                         $fixedContent
                     );
                 }

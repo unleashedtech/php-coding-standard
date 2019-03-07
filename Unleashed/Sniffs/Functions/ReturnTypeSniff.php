@@ -92,5 +92,4 @@ class ReturnTypeSniff implements Sniff
             }
         } while (true);
     }
-
 }

@@ -95,11 +95,10 @@ class ScopeOrderSniff implements Sniff
                         $whitelisted
                     )
                 ) {
-                    $current = array_keys($scopes,  $tokens[$scope]['code']);
+                    $current = array_keys($scopes, $tokens[$scope]['code']);
                     $current = $current[0];
 
-                    $error = 'Declare public methods first,'
-                    .'then protected ones and finally private ones';
+                    $error = 'Declare public methods first, then protected ones and finally private ones';
 
                     if (isset($previous) && $current < $previous) {
                         $phpcsFile->addError(
@@ -114,5 +113,4 @@ class ScopeOrderSniff implements Sniff
             }
         }
     }
-
 }

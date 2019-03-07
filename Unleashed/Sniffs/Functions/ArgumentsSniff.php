@@ -63,5 +63,4 @@ class ArgumentsSniff implements Sniff
             );
         }
     }
-
 }

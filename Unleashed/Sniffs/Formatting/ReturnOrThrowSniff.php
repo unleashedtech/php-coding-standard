@@ -18,12 +18,12 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  */
 class ReturnOrThrowSniff implements Sniff
 {
-    private $_openers = [
+    private $openers = [
         T_IF,
         T_CASE,
     ];
 
-    private $_conditions = [
+    private $conditions = [
         T_ELSEIF,
         T_ELSE,
         T_BREAK,
@@ -68,7 +68,7 @@ class ReturnOrThrowSniff implements Sniff
         }
 
         $opener = $phpcsFile->findPrevious(
-            $this->_openers,
+            $this->openers,
             $stackPtr,
             $tokens[$function]['scope_opener']
         );
@@ -84,7 +84,7 @@ class ReturnOrThrowSniff implements Sniff
             // check whether there's an elseif, else or break
             // following the if or case statement
             $condition = $phpcsFile->findNext(
-                $this->_conditions,
+                $this->conditions,
                 $stackPtr + 1,
                 $tokens[$function]['scope_closer']
             );

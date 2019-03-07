@@ -56,5 +56,4 @@ class UnaryOperatorsSniff implements Sniff
             $phpcsFile->addError($error, $stackPtr, 'Invalid');
         }
     }
-
 }

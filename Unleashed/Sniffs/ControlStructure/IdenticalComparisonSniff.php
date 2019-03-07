@@ -52,5 +52,4 @@ class IdenticalComparisonSniff implements Sniff
             'Warning'
         );
     }
-
 }

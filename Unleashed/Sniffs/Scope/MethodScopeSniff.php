@@ -25,7 +25,6 @@ class MethodScopeSniff extends AbstractScopeSniff
     public function __construct()
     {
         parent::__construct(array(T_CLASS), array(T_FUNCTION));
-
     }
 
     /**
@@ -37,11 +36,8 @@ class MethodScopeSniff extends AbstractScopeSniff
      *
      * @return void
      */
-    protected function processTokenWithinScope(
-        File $phpcsFile,
-        $stackPtr,
-        $currScope
-    ) {
+    protected function processTokenWithinScope(File $phpcsFile, $stackPtr, $currScope)
+    {
         $tokens = $phpcsFile->getTokens();
 
         $methodName = $phpcsFile->getDeclarationName($stackPtr);
@@ -62,7 +58,6 @@ class MethodScopeSniff extends AbstractScopeSniff
             $data  = array($methodName);
             $phpcsFile->addError($error, $stackPtr, 'Missing', $data);
         }
-
     }
 
     /**

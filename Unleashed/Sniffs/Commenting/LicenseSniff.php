@@ -27,7 +27,7 @@ class LicenseSniff implements Sniff
     public function register()
     {
         return [
-            T_NAMESPACE
+            T_NAMESPACE,
         ];
     }
 

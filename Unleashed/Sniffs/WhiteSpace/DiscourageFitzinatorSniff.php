@@ -38,7 +38,6 @@ class DiscourageFitzinatorSniff implements Sniff
     public function register()
     {
         return array(T_WHITESPACE);
-
     }
 
     /**

@@ -10,7 +10,6 @@
 
 namespace Unleashed\Sniffs\Errors;
 
-
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 
@@ -77,5 +76,4 @@ class UserDeprecatedSniff implements Sniff
             }
         } while ($opener < $closer);
     }
-
 }

@@ -37,7 +37,6 @@ class CommaSpacingSniff implements Sniff
         return array(
             T_COMMA,
         );
-
     }
 
     /**
