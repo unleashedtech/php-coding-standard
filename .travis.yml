@@ -1,0 +1,26 @@
+language: php
+
+php:
+    - 5.6
+    - 7.0
+    - 7.1
+    - 7.2
+    - 7.3
+    - nightly
+
+before_script:
+  - stable='^[0-9\.]+$'; if [[ "$TRAVIS_PHP_VERSION" =~ $stable ]]; then phpenv config-rm xdebug.ini; fi
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
+  - composer install
+  - phpunit --version
+
+script:
+    - composer test
+
+matrix:
+  allow_failures:
+    - php: nightly
+
+notifications:
+  email:
+    - codell@unleashed-technologies.com
