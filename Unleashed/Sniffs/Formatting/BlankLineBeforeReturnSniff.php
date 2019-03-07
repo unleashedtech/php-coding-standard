@@ -25,10 +25,10 @@ class BlankLineBeforeReturnSniff implements Sniff
      *
      * @var array
      */
-    public $supportedTokenizers = array(
+    public $supportedTokenizers = [
         'PHP',
         'JS',
-    );
+    ];
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -37,7 +37,7 @@ class BlankLineBeforeReturnSniff implements Sniff
      */
     public function register()
     {
-        return array(T_RETURN);
+        return [T_RETURN];
     }
 
     /**
@@ -54,7 +54,7 @@ class BlankLineBeforeReturnSniff implements Sniff
         $tokens          = $phpcsFile->getTokens();
         $current         = $stackPtr;
         $previousLine    = $tokens[$stackPtr]['line'] - 1;
-        $prevLineTokens  = array();
+        $prevLineTokens  = [];
 
         while ($current >= 0 && $tokens[$current]['line'] >= $previousLine) {
             if ($tokens[$current]['line'] === $previousLine
@@ -93,7 +93,5 @@ class BlankLineBeforeReturnSniff implements Sniff
                 $phpcsFile->fixer->endChangeset();
             }
         }
-
-        return;
     }
 }

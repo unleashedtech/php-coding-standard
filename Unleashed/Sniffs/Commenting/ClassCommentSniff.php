@@ -33,58 +33,58 @@ class ClassCommentSniff extends Sniff
      *
      * @var array
      */
-    protected $tags = array(
-        'category' => array(
+    protected $tags = [
+        'category' => [
             'required' => false,
             'allow_multiple' => false,
             'order_text' => 'precedes @package',
-        ),
-        'author' => array(
+        ],
+        'author' => [
             'required' => false,
             'allow_multiple' => true,
             'order_text' => 'follows @subpackage (if used) or @package',
-        ),
-        'copyright' => array(
+        ],
+        'copyright' => [
             'required' => false,
             'allow_multiple' => true,
             'order_text' => 'follows @author',
-        ),
-        'license' => array(
+        ],
+        'license' => [
             'required' => false,
             'allow_multiple' => false,
             'order_text' => 'follows @copyright (if used) or @author',
-        ),
-        'version' => array(
+        ],
+        'version' => [
             'required' => false,
             'allow_multiple' => false,
             'order_text' => 'follows @license',
-        ),
-        'link' => array(
+        ],
+        'link' => [
             'required' => false,
             'allow_multiple' => true,
             'order_text' => 'follows @version',
-        ),
-        'see' => array(
+        ],
+        'see' => [
             'required' => false,
             'allow_multiple' => true,
             'order_text' => 'follows @link',
-        ),
-        'since' => array(
+        ],
+        'since' => [
             'required' => false,
             'allow_multiple' => false,
             'order_text' => 'follows @see (if used) or @link',
-        ),
-        'deprecated' => array(
+        ],
+        'deprecated' => [
             'required' => false,
             'allow_multiple' => false,
             'order_text' => 'follows @since (if used) or @see (if used) or @link',
-        ),
-    );
+        ],
+    ];
 
-    protected $blacklist = array(
+    protected $blacklist = [
         '@package',
         '@subpackage',
-    );
+    ];
 
     /**
      * Processes each tag and raise an error if there are blacklisted tags.

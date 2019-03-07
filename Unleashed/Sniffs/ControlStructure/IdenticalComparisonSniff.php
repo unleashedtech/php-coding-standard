@@ -25,10 +25,10 @@ class IdenticalComparisonSniff implements Sniff
      */
     public function register()
     {
-        return array(
+        return [
             T_IS_EQUAL,
             T_IS_NOT_EQUAL,
-        );
+        ];
     }
 
     /**

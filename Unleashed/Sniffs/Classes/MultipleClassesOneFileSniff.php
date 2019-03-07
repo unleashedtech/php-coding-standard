@@ -39,9 +39,9 @@ class MultipleClassesOneFileSniff implements Sniff
      *
      * @var array
      */
-    public $supportedTokenizers = array(
+    public $supportedTokenizers = [
         'PHP',
-    );
+    ];
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -50,7 +50,7 @@ class MultipleClassesOneFileSniff implements Sniff
      */
     public function register()
     {
-        return array(T_CLASS);
+        return [T_CLASS];
     }
 
     /**
@@ -78,7 +78,5 @@ class MultipleClassesOneFileSniff implements Sniff
                 'Invalid'
             );
         }
-
-        return;
     }
 }

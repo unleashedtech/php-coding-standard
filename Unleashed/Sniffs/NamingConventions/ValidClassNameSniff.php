@@ -23,9 +23,9 @@ class ValidClassNameSniff implements Sniff
      *
      * @var array
      */
-    public $supportedTokenizers = array(
+    public $supportedTokenizers = [
         'PHP',
-    );
+    ];
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -34,12 +34,12 @@ class ValidClassNameSniff implements Sniff
      */
     public function register()
     {
-        return array(
+        return [
             T_INTERFACE,
             T_TRAIT,
             T_EXTENDS,
             T_ABSTRACT,
-        );
+        ];
     }
 
     /**
@@ -137,7 +137,5 @@ class ValidClassNameSniff implements Sniff
 
             $stackPtr++;
         }
-
-        return;
     }
 }

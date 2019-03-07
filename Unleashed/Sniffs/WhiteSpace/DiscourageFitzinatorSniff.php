@@ -23,11 +23,11 @@ class DiscourageFitzinatorSniff implements Sniff
      *
      * @var array
      */
-    public $supportedTokenizers = array(
-                                   'PHP',
-                                   'JS',
-                                   'CSS',
-                                  );
+    public $supportedTokenizers = [
+        'PHP',
+        'JS',
+        'CSS',
+    ];
 
 
     /**
@@ -37,7 +37,7 @@ class DiscourageFitzinatorSniff implements Sniff
      */
     public function register()
     {
-        return array(T_WHITESPACE);
+        return [T_WHITESPACE];
     }
 
     /**

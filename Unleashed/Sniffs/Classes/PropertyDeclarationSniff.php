@@ -24,9 +24,9 @@ class PropertyDeclarationSniff implements Sniff
      *
      * @var array
      */
-    public $supportedTokenizers = array(
+    public $supportedTokenizers = [
         'PHP',
-    );
+    ];
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -35,9 +35,9 @@ class PropertyDeclarationSniff implements Sniff
      */
     public function register()
     {
-        return array(
+        return [
             T_CLASS,
-        );
+        ];
     }
 
     /**
@@ -64,11 +64,11 @@ class PropertyDeclarationSniff implements Sniff
             $end
         );
 
-        $wantedTokens = array(
+        $wantedTokens = [
             T_PUBLIC,
             T_PROTECTED,
             T_PRIVATE,
-        );
+        ];
 
         while ($scope) {
             $scope = $phpcsFile->findNext(

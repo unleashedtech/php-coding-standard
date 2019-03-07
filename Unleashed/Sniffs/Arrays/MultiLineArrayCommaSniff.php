@@ -26,9 +26,9 @@ class MultiLineArrayCommaSniff implements Sniff
      *
      * @var array
      */
-    public $supportedTokenizers = array(
-                                   'PHP',
-                                  );
+    public $supportedTokenizers = [
+        'PHP',
+    ];
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -37,10 +37,10 @@ class MultiLineArrayCommaSniff implements Sniff
      */
     public function register()
     {
-        return array(
-                T_ARRAY,
-                T_OPEN_SHORT_ARRAY,
-               );
+        return [
+            T_ARRAY,
+            T_OPEN_SHORT_ARRAY,
+        ];
     }
 
     /**
@@ -65,13 +65,13 @@ class MultiLineArrayCommaSniff implements Sniff
 
         if ($open['line'] !== $tokens[$closePtr]['line']) {
             $arrayIsNotEmpty = $phpcsFile->findPrevious(
-                array(
+                [
                     T_WHITESPACE,
                     T_COMMENT,
                     T_ARRAY,
                     T_OPEN_PARENTHESIS,
                     T_OPEN_SHORT_ARRAY,
-                ),
+                ],
                 $closePtr - 1,
                 $stackPtr,
                 true
@@ -96,7 +96,7 @@ class MultiLineArrayCommaSniff implements Sniff
 
                         if ($fix === true) {
                             $ptr = $phpcsFile->findPrevious(
-                                array(T_WHITESPACE, T_COMMENT),
+                                [T_WHITESPACE, T_COMMENT],
                                 $closePtr-1,
                                 $stackPtr,
                                 true

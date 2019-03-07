@@ -24,9 +24,9 @@ class ScopeOrderSniff implements Sniff
      *
      * @var array
      */
-    public $supportedTokenizers = array(
+    public $supportedTokenizers = [
         'PHP',
-    );
+    ];
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -35,10 +35,10 @@ class ScopeOrderSniff implements Sniff
      */
     public function register()
     {
-        return array(
+        return [
             T_CLASS,
             T_INTERFACE,
-        );
+        ];
     }
 
     /**
@@ -55,17 +55,17 @@ class ScopeOrderSniff implements Sniff
         $tokens = $phpcsFile->getTokens();
         $function = $stackPtr;
 
-        $scopes = array(
+        $scopes = [
             0 => T_PUBLIC,
             1 => T_PROTECTED,
             2 => T_PRIVATE,
-        );
+        ];
 
-        $whitelisted = array(
+        $whitelisted = [
             '__construct',
             'setUp',
             'tearDown',
-        );
+        ];
 
         while ($function) {
             $end = null;

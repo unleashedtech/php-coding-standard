@@ -25,10 +25,10 @@ class UnaryOperatorsSniff implements Sniff
      */
     public function register()
     {
-        return array(
+        return [
             T_INC,
             T_DEC,
-        );
+        ];
     }
 
     /**

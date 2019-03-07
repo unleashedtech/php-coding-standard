@@ -25,9 +25,9 @@ class ArgumentsSniff implements Sniff
      */
     public function register()
     {
-        return array(
+        return [
             T_FUNCTION,
-        );
+        ];
     }
 
     /**

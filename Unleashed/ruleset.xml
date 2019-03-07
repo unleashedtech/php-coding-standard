@@ -94,4 +94,13 @@
     <rule ref="Unleashed.Commenting.ClassComment.SpacingBeforeTags">
         <message>There should always be a description, followed by a blank line, before the tags of a class comment.</message>
     </rule>
+
+    <!-- Additional opinionated rules -->
+    <rule ref="Generic.Arrays.ArrayIndent"/>
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+    <rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
+    <rule ref="Squiz.PHP.CommentedOutCode"/>
+    <rule ref="Squiz.PHP.NonExecutableCode"/>
+    <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
+    <rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/>
 </ruleset>

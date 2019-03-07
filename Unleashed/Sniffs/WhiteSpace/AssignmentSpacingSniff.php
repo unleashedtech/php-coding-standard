@@ -24,9 +24,9 @@ class AssignmentSpacingSniff implements Sniff
      *
      * @var array
      */
-    public $supportedTokenizers = array(
-                                   'PHP',
-                                  );
+    public $supportedTokenizers = [
+        'PHP',
+    ];
 
     /**
      * Returns an array of tokens this test wants to listen for.
