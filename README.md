@@ -16,7 +16,7 @@ This standard can be installed with the [Composer](https://getcomposer.org/) dep
 
 2. Install the coding standard as a dependency of your project
 
-        composer require --dev unleashedtech/php-coding-standard:^1.0
+        composer require --dev unleashedtech/php-coding-standard
 
 3. Add the coding standard to the PHP_CodeSniffer install path
 
