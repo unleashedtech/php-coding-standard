@@ -1,6 +1,8 @@
-[![Build Status](https://secure.travis-ci.org/unleashedtech/php-coding-standard.png)](http://travis-ci.org/unleashedtech/php-coding-standard)
-
 # Unleashed Technologies PHP CodeSniffer Coding Standard
+
+[![Latest Version](https://img.shields.io/packagist/v/unleashedtech/php-coding-standard.svg?style=flat-square)](https://packagist.org/packages/unleashedtech/php-coding-standard)
+[![Build Status](https://img.shields.io/travis/unleashedtech/php-coding-standard/master.svg?style=flat-square)](https://travis-ci.org/unleashedtech/php-coding-standard)
+[![Software License](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
 A PHP coding standard for Unleashed Technologies, originally based on [djoos/Symfony-coding-standard](https://www.github.com/djoos/Symfony-coding-standard).
 
