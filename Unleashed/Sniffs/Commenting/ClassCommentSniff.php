@@ -82,7 +82,6 @@ class ClassCommentSniff extends Sniff
     ];
 
     protected $blacklist = [
-        '@package',
         '@subpackage',
     ];
 
