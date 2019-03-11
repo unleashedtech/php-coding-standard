@@ -62,6 +62,7 @@ class FunctionCommentSniff extends Sniff
                     'Missing',
                     [$function]
                 );
+
                 return;
             }
         } else {
@@ -71,6 +72,7 @@ class FunctionCommentSniff extends Sniff
 
         if ($hasComment && $tokens[$commentEnd]['code'] === T_COMMENT) {
             $phpcsFile->addError('You must use "/**" style comments for a function comment', $stackPtr, 'WrongStyle');
+
             return;
         }
 
