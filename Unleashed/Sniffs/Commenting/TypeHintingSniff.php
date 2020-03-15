@@ -3,9 +3,9 @@
 /**
  * This file is part of the Unleashed PHP coding standard (phpcs standard)
  *
- * @author   wicliff wolda <dev@bloody-wicked.com>
- * @license  http://spdx.org/licenses/MIT MIT License
- * @link     https://github.com/unleashedtech/php-coding-standard
+ * @author  wicliff wolda <dev@bloody-wicked.com>
+ * @license http://spdx.org/licenses/MIT MIT License
+ * @link    https://github.com/unleashedtech/php-coding-standard
  */
 
 namespace Unleashed\Sniffs\Commenting;
@@ -76,7 +76,7 @@ class TypeHintingSniff implements Sniff
                     $tokens[$type]['content']
                 )
             );
-        } elseif (in_array($tag['code'], self::$casts)) {
+        } elseif (in_array($tag['code'], self::$casts, true)) {
             $hint = strtolower(
                 preg_replace(
                     '/\(([^\s]+)\)/',
@@ -86,7 +86,7 @@ class TypeHintingSniff implements Sniff
             );
         }
 
-        if (isset($hint) && isset(self::$blacklist[$hint])) {
+        if (isset($hint, self::$blacklist[$hint])) {
             $error = sprintf(
                 'For type-hinting in PHPDocs and casting, use %s instead of %s',
                 self::$blacklist[$hint],

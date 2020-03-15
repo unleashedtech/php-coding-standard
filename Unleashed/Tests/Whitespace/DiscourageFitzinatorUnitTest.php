@@ -8,17 +8,25 @@
  * @link    https://github.com/unleashedtech/php-coding-standard
  */
 
-namespace Unleashed\Tests\Functions;
+namespace Unleashed\Tests\Whitespace;
 
 use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 /**
- * Unit test class for the ScopeOrderUnitTest sniff.
+ * Unit test class for the DiscourageFitzinator sniff.
  *
  * A sniff unit test checks a .inc file for expected violations of a single
  * coding standard. Expected errors and warnings are stored in this class.
+ *
+ * PHP version 5
+ *
+ * @category PHP
+ * @package  Symfony-coding-standard
+ * @author   Michael Moll <mmoll@mmoll.at>
+ * @license  http://spdx.org/licenses/MIT MIT License
+ * @link     https://github.com/djoos/Symfony2-coding-standard
  */
-class ScopeOrderUnitTest extends AbstractSniffUnitTest
+class DiscourageFitzinatorUnitTest extends AbstractSniffUnitTest
 {
     /**
      * Returns the lines where errors should occur.
@@ -30,12 +38,7 @@ class ScopeOrderUnitTest extends AbstractSniffUnitTest
      */
     public function getErrorList()
     {
-        return array(
-            7  => 1,
-            9  => 1,
-            15 => 1,
-            17 => 1,
-        );
+        return [];
     }
 
     /**
@@ -48,6 +51,10 @@ class ScopeOrderUnitTest extends AbstractSniffUnitTest
      */
     public function getWarningList()
     {
-        return array();
+        return [
+            5 => 1,
+            6 => 1,
+            8 => 1,
+        ];
     }
 }

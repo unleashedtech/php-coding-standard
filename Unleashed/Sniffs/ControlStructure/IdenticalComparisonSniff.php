@@ -3,9 +3,9 @@
 /**
  * This file is part of the Unleashed PHP coding standard (phpcs standard)
  *
- * @author   wicliff wolda <dev@bloody-wicked.com>
- * @license  http://spdx.org/licenses/MIT MIT License
- * @link     https://github.com/unleashedtech/php-coding-standard
+ * @author  wicliff wolda <dev@bloody-wicked.com>
+ * @license http://spdx.org/licenses/MIT MIT License
+ * @link    https://github.com/unleashedtech/php-coding-standard
  */
 
 namespace Unleashed\Sniffs\ControlStructure;

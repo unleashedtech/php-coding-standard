@@ -3,9 +3,9 @@
 /**
  * This file is part of the Unleashed PHP coding standard (phpcs standard)
  *
- * @author   wicliff wolda <dev@bloody-wicked.com>
- * @license  http://spdx.org/licenses/MIT MIT License
- * @link     https://github.com/unleashedtech/php-coding-standard
+ * @author  wicliff wolda <dev@bloody-wicked.com>
+ * @license http://spdx.org/licenses/MIT MIT License
+ * @link    https://github.com/unleashedtech/php-coding-standard
  */
 
 namespace Unleashed\Sniffs\NamingConventions;
@@ -94,11 +94,12 @@ class ValidClassNameSniff implements Sniff
              */
             if ('T_EXTENDS' === $tokens[$stackPtr]['type']) {
                 $extend = $phpcsFile->findNext(T_STRING, $stackPtr);
+                $class = $phpcsFile->findPrevious(T_CLASS, $stackPtr);
 
                 if ($extend
+                    && false !== $class
                     && substr($tokens[$extend]['content'], -9) === 'Exception'
                 ) {
-                    $class = $phpcsFile->findPrevious(T_CLASS, $stackPtr);
                     $name = $phpcsFile->findNext(T_STRING, $class);
 
                     if ($name
@@ -122,9 +123,8 @@ class ValidClassNameSniff implements Sniff
                 $function = $phpcsFile->findNext(T_FUNCTION, $stackPtr);
 
                 // making sure we're not dealing with an abstract function
-                if ($name && (is_null($function)
-                    || $name < $function)
-                    && substr($tokens[$name]['content'], 0, 8) !== 'Abstract'
+                if ((null === $function|| $name < $function)
+                    && strpos($tokens[$name]['content'], 'Abstract') !== 0
                 ) {
                     $phpcsFile->addError(
                         'Abstract class name is not prefixed with "Abstract"',
@@ -134,8 +134,6 @@ class ValidClassNameSniff implements Sniff
                 }
                 break;
             }
-
-            $stackPtr++;
         }
     }
 }

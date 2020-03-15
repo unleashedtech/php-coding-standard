@@ -3,9 +3,9 @@
 /**
  * This file is part of the Unleashed PHP coding standard (phpcs standard)
  *
- * @author   wicliff wolda <dev@bloody-wicked.com>
- * @license  http://spdx.org/licenses/MIT MIT License
- * @link     https://github.com/unleashedtech/php-coding-standard
+ * @author  wicliff wolda <dev@bloody-wicked.com>
+ * @license http://spdx.org/licenses/MIT MIT License
+ * @link    https://github.com/unleashedtech/php-coding-standard
  */
 
 namespace Unleashed\Sniffs\Whitespace;
@@ -15,9 +15,9 @@ use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Util\Tokens;
 
 /**
- * Throws warnings if an assignment operator isn't surrounded with whitespace.
+ * Throws warnings if a binary operator isn't surrounded with whitespace.
  */
-class AssignmentSpacingSniff implements Sniff
+class BinaryOperatorSpacingSniff implements Sniff
 {
     /**
      * A list of tokenizers this sniff supports.
@@ -35,7 +35,7 @@ class AssignmentSpacingSniff implements Sniff
      */
     public function register()
     {
-        return Tokens::$assignmentTokens;
+        return Tokens::$comparisonTokens;
     }
 
     /**
@@ -51,15 +51,24 @@ class AssignmentSpacingSniff implements Sniff
     {
         $tokens = $phpcsFile->getTokens();
 
-        if (($tokens[$stackPtr - 1]['code'] !== T_WHITESPACE
-            || $tokens[$stackPtr + 1]['code'] !== T_WHITESPACE)
-            && $tokens[$stackPtr - 1]['content'] !== 'strict_types'
+        if ($tokens[$stackPtr -1]['code'] !== T_WHITESPACE
+            || $tokens[$stackPtr +1]['code'] !== T_WHITESPACE
         ) {
-            $phpcsFile->addError(
-                'Add a single space around assignment operators',
+            $fix = $phpcsFile->addFixableError(
+                'Add a single space around binary operators',
                 $stackPtr,
                 'Invalid'
             );
+
+            if ($fix === true) {
+                if ($tokens[$stackPtr -1]['code'] !== T_WHITESPACE) {
+                    $phpcsFile->fixer->addContentBefore($stackPtr, ' ');
+                }
+
+                if ($tokens[$stackPtr +1]['code'] !== T_WHITESPACE) {
+                    $phpcsFile->fixer->addContent($stackPtr, ' ');
+                }
+            }
         }
     }
 }

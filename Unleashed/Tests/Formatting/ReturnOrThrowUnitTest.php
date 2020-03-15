@@ -3,9 +3,9 @@
 /**
  * This file is part of the Unleashed PHP coding standard (phpcs standard)
  *
- * @author   wicliff wolda <dev@bloody-wicked.com>
- * @license  http://spdx.org/licenses/MIT MIT License
- * @link     https://github.com/unleashedtech/php-coding-standard
+ * @author  wicliff wolda <dev@bloody-wicked.com>
+ * @license http://spdx.org/licenses/MIT MIT License
+ * @link    https://github.com/unleashedtech/php-coding-standard
  */
 
 namespace Unleashed\Tests\Formatting;
@@ -31,7 +31,8 @@ class ReturnOrThrowUnitTest extends AbstractSniffUnitTest
     public function getErrorList()
     {
         return array(
-            5 => 1,
+            16 => 1,
+            45 => 1,
         );
     }
 
@@ -41,7 +42,7 @@ class ReturnOrThrowUnitTest extends AbstractSniffUnitTest
      * The key of the array should represent the line number and the value
      * should represent the number of errors that should occur on that line.
      *
-     * @return array(int => int)
+     * @return array<int, int>
      */
     public function getWarningList()
     {

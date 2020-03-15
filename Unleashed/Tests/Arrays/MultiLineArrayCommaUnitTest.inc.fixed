@@ -10,7 +10,7 @@ $arr = array(
 
 $arr = array(
         'foo'
-        'bar'
+        'bar',
 );
 
 $arr = array(
@@ -26,7 +26,7 @@ $arr = [
 
 $arr = [
         'foo'
-        'bar'
+        'bar',
 ];
 
 $arr = [
@@ -42,7 +42,7 @@ $arr = array(
 
 $arr = array(
         'foo'
-        'bar' //baz
+        'bar', //baz
 );
 
 $arr = array(
@@ -52,7 +52,7 @@ $arr = array(
 
 $arr = array(
         'foo'
-        'bar' /* baz */
+        'bar', /* baz */
 );
 
 $arr = array(
@@ -73,7 +73,7 @@ $arr = [
 
 $arr = [
         'foo'
-        'bar' //baz
+        'bar', //baz
 ];
 
 $arr = [
@@ -83,7 +83,7 @@ $arr = [
 
 $arr = [
         'foo'
-        'bar' /* baz */
+        'bar', /* baz */
 ];
 
 $arr = [
@@ -106,5 +106,5 @@ $defaultOptions = [
 $defaultOptions = [
     'some_default'        => 'values',
     'another_default'     => 'more values',
-    'yet_another_default' => 'more values'  //phpcs:ignore
+    'yet_another_default' => 'more values',  //phpcs:ignore
 ];

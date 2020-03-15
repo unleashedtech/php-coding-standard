@@ -3,9 +3,9 @@
 /**
  * This file is part of the Unleashed PHP coding standard (phpcs standard)
  *
- * @author   wicliff wolda <dev@bloody-wicked.com>
- * @license  http://spdx.org/licenses/MIT MIT License
- * @link     https://github.com/unleashedtech/php-coding-standard
+ * @author  wicliff wolda <dev@bloody-wicked.com>
+ * @license http://spdx.org/licenses/MIT MIT License
+ * @link    https://github.com/unleashedtech/php-coding-standard
  */
 
 namespace Unleashed\Sniffs\Errors;
@@ -62,18 +62,28 @@ class UserDeprecatedSniff implements Sniff
                 break;
             }
 
-            if ($tokens[$string]['content'] === 'E_USER_DEPRECATED'
-                && '@' !== $tokens[$stackPtr -1]['content']
-            ) {
-                $error = 'Calls to trigger_error with type E_USER_DEPRECATED ';
-                $error .= 'must be switched to opt-in via @ operator';
+            $opener = $string + 1;
 
-                $phpcsFile->addError($error, $stackPtr, 'Invalid');
-
-                break;
-            } else {
-                $opener = $string + 1;
+            if ($tokens[$string]['content'] !== 'E_USER_DEPRECATED') {
+                continue;
             }
+
+            if ('@' === $tokens[$stackPtr -1]['content']) {
+                continue;
+            }
+
+            if ('@' === $tokens[$stackPtr - 2]['content']
+                && 'T_NS_SEPARATOR' === $tokens[$stackPtr - 1]['type']
+            ) {
+                continue;
+            }
+
+            $error = 'Calls to trigger_error with type E_USER_DEPRECATED ';
+            $error .= 'must be switched to opt-in via @ operator';
+
+            $phpcsFile->addError($error, $stackPtr, 'Invalid');
+
+            break;
         } while ($opener < $closer);
     }
 }

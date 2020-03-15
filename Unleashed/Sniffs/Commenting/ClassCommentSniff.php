@@ -3,9 +3,9 @@
 /**
  * This file is part of the Unleashed PHP coding standard (phpcs standard)
  *
- * @author   wicliff wolda <dev@bloody-wicked.com>
- * @license  http://spdx.org/licenses/MIT MIT License
- * @link     https://github.com/unleashedtech/php-coding-standard
+ * @author  wicliff wolda <dev@bloody-wicked.com>
+ * @license http://spdx.org/licenses/MIT MIT License
+ * @link    https://github.com/unleashedtech/php-coding-standard
  */
 
 namespace Unleashed\Sniffs\Commenting;
@@ -103,7 +103,7 @@ class ClassCommentSniff extends Sniff
         foreach ($tokens[$commentStart]['comment_tags'] as $tag) {
             $name = $tokens[$tag]['content'];
 
-            if (in_array($name, $this->blacklist)) {
+            if (in_array($name, $this->blacklist, true)) {
                 $error = sprintf('The %s tag is not allowed.', $name);
                 $phpcsFile->addError($error, $tag, 'Blacklisted');
             }

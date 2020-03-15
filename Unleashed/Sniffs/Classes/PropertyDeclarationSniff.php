@@ -3,9 +3,9 @@
 /**
  * This file is part of the Unleashed PHP coding standard (phpcs standard)
  *
- * @author   wicliff wolda <dev@bloody-wicked.com>
- * @license  http://spdx.org/licenses/MIT MIT License
- * @link     https://github.com/unleashedtech/php-coding-standard
+ * @author  wicliff wolda <dev@bloody-wicked.com>
+ * @license http://spdx.org/licenses/MIT MIT License
+ * @link    https://github.com/unleashedtech/php-coding-standard
  */
 
 namespace Unleashed\Sniffs\Classes;
@@ -37,6 +37,7 @@ class PropertyDeclarationSniff implements Sniff
     {
         return [
             T_CLASS,
+            T_ANON_CLASS
         ];
     }
 
@@ -68,16 +69,23 @@ class PropertyDeclarationSniff implements Sniff
             T_PUBLIC,
             T_PROTECTED,
             T_PRIVATE,
+            T_ANON_CLASS,
         ];
 
         while ($scope) {
+            if (T_ANON_CLASS === $tokens[$scope]['code']) {
+                $scope = $tokens[$scope]['scope_closer'];
+                continue;
+            }
             $scope = $phpcsFile->findNext(
                 $wantedTokens,
                 $scope + 1,
                 $end
             );
 
-            if ($scope && $tokens[$scope + 2]['code'] === T_VARIABLE) {
+            if ($scope && $tokens[$scope + 2]['code'] === T_VARIABLE
+                && $tokens[$scope]['code'] !== T_ANON_CLASS
+            ) {
                 $phpcsFile->addError(
                     'Declare class properties before methods',
                     $scope,

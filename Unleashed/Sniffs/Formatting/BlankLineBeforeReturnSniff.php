@@ -3,9 +3,9 @@
 /**
  * This file is part of the Unleashed PHP coding standard (phpcs standard)
  *
- * @author   wicliff wolda <dev@bloody-wicked.com>
- * @license  http://spdx.org/licenses/MIT MIT License
- * @link     https://github.com/unleashedtech/php-coding-standard
+ * @author  wicliff wolda <dev@bloody-wicked.com>
+ * @license http://spdx.org/licenses/MIT MIT License
+ * @link    https://github.com/unleashedtech/php-coding-standard
  */
 
 namespace Unleashed\Sniffs\Formatting;
@@ -55,13 +55,16 @@ class BlankLineBeforeReturnSniff implements Sniff
         $current         = $stackPtr;
         $previousLine    = $tokens[$stackPtr]['line'] - 1;
         $prevLineTokens  = [];
+        $spaceTokens     = [
+            'T_WHITESPACE',
+            'T_COMMENT',
+            'T_DOC_COMMENT_CLOSE_TAG',
+            'T_DOC_COMMENT_WHITESPACE',
+        ];
 
         while ($current >= 0 && $tokens[$current]['line'] >= $previousLine) {
             if ($tokens[$current]['line'] === $previousLine
-                && $tokens[$current]['type'] !== 'T_WHITESPACE'
-                && $tokens[$current]['type'] !== 'T_COMMENT'
-                && $tokens[$current]['type'] !== 'T_DOC_COMMENT_CLOSE_TAG'
-                && $tokens[$current]['type'] !== 'T_DOC_COMMENT_WHITESPACE'
+                && !in_array($tokens[$current]['type'], $spaceTokens, true)
             ) {
                 $prevLineTokens[] = $tokens[$current]['type'];
             }
@@ -85,11 +88,11 @@ class BlankLineBeforeReturnSniff implements Sniff
             if ($fix === true) {
                 $phpcsFile->fixer->beginChangeset();
                 $i = 1;
-                while ($tokens[$stackPtr-$i]['type'] === "T_WHITESPACE") {
+                while ($tokens[$stackPtr-$i]['type'] === 'T_WHITESPACE') {
                     $i++;
                 }
 
-                $phpcsFile->fixer->addNewLine($stackPtr-$i);
+                $phpcsFile->fixer->addNewline($stackPtr-$i);
                 $phpcsFile->fixer->endChangeset();
             }
         }

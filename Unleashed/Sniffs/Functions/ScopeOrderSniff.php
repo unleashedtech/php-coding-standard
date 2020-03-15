@@ -3,9 +3,9 @@
 /**
  * This file is part of the Unleashed PHP coding standard (phpcs standard)
  *
- * @author   wicliff wolda <dev@bloody-wicked.com>
- * @license  http://spdx.org/licenses/MIT MIT License
- * @link     https://github.com/unleashedtech/php-coding-standard
+ * @author  wicliff wolda <dev@bloody-wicked.com>
+ * @license http://spdx.org/licenses/MIT MIT License
+ * @link    https://github.com/unleashedtech/php-coding-standard
  */
 
 namespace Unleashed\Sniffs\Functions;
@@ -38,6 +38,7 @@ class ScopeOrderSniff implements Sniff
         return [
             T_CLASS,
             T_INTERFACE,
+            T_ANON_CLASS,
         ];
     }
 
@@ -75,10 +76,18 @@ class ScopeOrderSniff implements Sniff
             }
 
             $function = $phpcsFile->findNext(
-                T_FUNCTION,
+                [
+                    T_ANON_CLASS,
+                    T_FUNCTION,
+                ],
                 $function + 1,
                 $end
             );
+
+            if (T_ANON_CLASS === $tokens[$function]['code']) {
+                $function = $tokens[$function]['scope_closer'];
+                continue;
+            }
 
             if (isset($tokens[$function]['parenthesis_opener'])) {
                 $scope = $phpcsFile->findPrevious($scopes, $function -1, $stackPtr);
@@ -92,10 +101,11 @@ class ScopeOrderSniff implements Sniff
                     && $name
                     && !in_array(
                         $tokens[$name]['content'],
-                        $whitelisted
+                        $whitelisted,
+                        true
                     )
                 ) {
-                    $current = array_keys($scopes, $tokens[$scope]['code']);
+                    $current = array_keys($scopes,  $tokens[$scope]['code'], true);
                     $current = $current[0];
 
                     $error = 'Declare public methods first, then protected ones and finally private ones';

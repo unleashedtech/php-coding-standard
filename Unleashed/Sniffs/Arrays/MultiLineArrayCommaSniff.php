@@ -3,9 +3,9 @@
 /**
  * This file is part of the Unleashed PHP coding standard (phpcs standard)
  *
- * @author   wicliff wolda <dev@bloody-wicked.com>
- * @license  http://spdx.org/licenses/MIT MIT License
- * @link     https://github.com/unleashedtech/php-coding-standard
+ * @author  wicliff wolda <dev@bloody-wicked.com>
+ * @license http://spdx.org/licenses/MIT MIT License
+ * @link    https://github.com/unleashedtech/php-coding-standard
  */
 
 namespace Unleashed\Sniffs\Arrays;
@@ -86,6 +86,7 @@ class MultiLineArrayCommaSniff implements Sniff
                     $lastCommaPtr++;
 
                     if ($tokens[$lastCommaPtr]['code'] !== T_WHITESPACE
+                        && $tokens[$lastCommaPtr]['code'] !== T_PHPCS_IGNORE
                         && $tokens[$lastCommaPtr]['code'] !== T_COMMENT
                     ) {
                         $fix = $phpcsFile->addFixableError(
@@ -96,7 +97,7 @@ class MultiLineArrayCommaSniff implements Sniff
 
                         if ($fix === true) {
                             $ptr = $phpcsFile->findPrevious(
-                                [T_WHITESPACE, T_COMMENT],
+                                [T_WHITESPACE, T_COMMENT, T_PHPCS_IGNORE],
                                 $closePtr-1,
                                 $stackPtr,
                                 true
