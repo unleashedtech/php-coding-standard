@@ -512,7 +512,6 @@
         </properties>
     </rule>
     <!-- Forbid spaces before semicolon `;` -->
-    <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
     <!-- Forbid superfluous whitespaces -->
     <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
         <properties>
