@@ -159,17 +159,21 @@
                     @internal,
                     @deprecated,
                 "/>
+                <element value="@var"/>
                 <element value="
                     @link,
                     @see,
                     @uses,
                 "/>
+                <!-- Doctrine ORM and Extensions -->
                 <element value="
-                    @Assert\,
                     @ORM\,
                     @ODM\,
                     @PHPCR\,
+                    @Gedmo\,
                 "/>
+                <!-- Symfony validation -->
+                <element value="@Assert\"/>
                 <element value="@param"/>
                 <element value="@return"/>
                 <element value="@throws"/>
