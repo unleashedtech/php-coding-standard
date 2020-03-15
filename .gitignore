@@ -1,5 +1,7 @@
 /.idea/
-/phpunit.xml
 /composer.lock
 /composer.phar
+/tests/input2
+/phpcs.log
+/phpcs.xml
 /vendor/

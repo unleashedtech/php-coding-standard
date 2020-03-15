@@ -1,3 +1,5 @@
+dist: xenial
+sudo: false
 language: php
 
 php:
@@ -7,18 +9,48 @@ php:
     - 7.4
     - nightly
 
-before_script:
-  - stable='^[0-9\.]+$'; if [[ "$TRAVIS_PHP_VERSION" =~ $stable ]]; then phpenv config-rm xdebug.ini; fi
-  - export PATH="$HOME/.composer/vendor/bin:$PATH"
-  - composer install
-  - phpunit --version
-
-script:
-    - composer test
-
 matrix:
   allow_failures:
     - php: nightly
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+before_install:
+  - mv ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini{,.disabled} || echo "xdebug not available"
+  - composer self-update
+
+install: travis_retry composer update --prefer-dist
+
+script:
+  - vendor/bin/phpcs
+  - make test-report
+
+stages:
+  - Validate against schema
+  - Test
+  - Apply fixes
+
+jobs:
+  allow_failures:
+    - php: nightly
+
+  include:
+    - stage: Validate against schema
+      addons:
+        apt:
+          packages:
+            - libxml2-utils
+      script:
+        - xmllint --noout --schema vendor/squizlabs/php_codesniffer/phpcs.xsd lib/Unleashed/ruleset.xml
+
+    - stage: Apply fixes
+      script: make test-fix
+
+    - stage: Apply fixes
+      php: 7.4
+      script: make test-fix
 
 notifications:
   email:

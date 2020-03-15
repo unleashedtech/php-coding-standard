@@ -1,0 +1,67 @@
+diff --git a/tests/expected_report.txt b/tests/expected_report.txt
+index 7d5b1a8..1837c4b 100644
+--- a/tests/expected_report.txt
++++ b/tests/expected_report.txt
+@@ -14,7 +14,7 @@ tests/input/ControlStructures.php                     17      2
+ tests/input/doc-comment-spacing.php                   14      0
+ tests/input/duplicate-assignment-variable.php         1       0
+ tests/input/EarlyReturn.php                           6       0
+-tests/input/example-class.php                         43      0
++tests/input/example-class.php                         46      0
+ tests/input/forbidden-comments.php                    14      0
+ tests/input/forbidden-functions.php                   5       0
+ tests/input/inline_type_hint_assertions.php           7       0
+@@ -35,15 +35,15 @@ tests/input/static-closures.php                       1       0
+ tests/input/test-case.php                             7       0
+ tests/input/trailing_comma_on_array.php               1       0
+ tests/input/traits-uses.php                           14      0
+-tests/input/type-hints.php                            6       0
++tests/input/type-hints.php                            7       0
+ tests/input/UnusedVariables.php                       3       0
+ tests/input/use-ordering.php                          6       0
+ tests/input/useless-semicolon.php                     2       0
+ tests/input/UselessConditions.php                     26      0
+ ----------------------------------------------------------------------
+-A TOTAL OF 392 ERRORS AND 2 WARNINGS WERE FOUND IN 37 FILES
++A TOTAL OF 396 ERRORS AND 2 WARNINGS WERE FOUND IN 37 FILES
+ ----------------------------------------------------------------------
+-PHPCBF CAN FIX 335 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
++PHPCBF CAN FIX 339 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
+ ----------------------------------------------------------------------
+ 
+ 
+diff --git a/tests/fixed/example-class.php b/tests/fixed/example-class.php
+index 4ad5c48..8361433 100644
+--- a/tests/fixed/example-class.php
++++ b/tests/fixed/example-class.php
+@@ -25,14 +25,12 @@ class Example implements IteratorAggregate
+ {
+     private const VERSION = PHP_VERSION - (PHP_MINOR_VERSION * 100) - PHP_PATCH_VERSION;
+ 
+-    /** @var int|null */
+-    private $foo;
++    private ?int $foo = null;
+ 
+     /** @var string[] */
+-    private $bar;
++    private array $bar;
+ 
+-    /** @var bool */
+-    private $baz;
++    private bool $baz;
+ 
+     /** @var ControlStructureSniff|int|string|null */
+     private $baxBax;
+diff --git a/tests/fixed/type-hints.php b/tests/fixed/type-hints.php
+index 0e952fc..9824fb0 100644
+--- a/tests/fixed/type-hints.php
++++ b/tests/fixed/type-hints.php
+@@ -10,7 +10,7 @@ use Traversable;
+ class TraversableTypeHints
+ {
+     /** @var Traversable */
+-    private $parameter;
++    private Traversable $parameter;
+ 
+     /**
+      * @param Iterator $iterator

@@ -1,10 +1,10 @@
-# Unleashed Technologies PHP CodeSniffer Coding Standard
+# Unleashed Technologies PHP_CodeSniffer Coding Standard
 
 [![Latest Version](https://img.shields.io/packagist/v/unleashedtech/php-coding-standard.svg?style=flat-square)](https://packagist.org/packages/unleashedtech/php-coding-standard)
 [![Build Status](https://img.shields.io/travis/unleashedtech/php-coding-standard/master.svg?style=flat-square)](https://travis-ci.org/unleashedtech/php-coding-standard)
 [![Software License](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
-A PHP coding standard for Unleashed Technologies, originally based on [djoos/Symfony-coding-standard](https://www.github.com/djoos/Symfony-coding-standard).
+A PHP coding standard for Unleashed Technologies, originally based on [doctrine/coding-standard](https://github.com/doctrine/coding-standard).
 
 ## Installation
 
@@ -34,7 +34,7 @@ This standard can be installed with the [Composer](https://getcomposer.org/) dep
 
 1. Install [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
 
-2. Checkout this repository 
+2. Checkout this repository
 
         git clone git://github.com/unleashedtech/php-coding-standard.git
 
