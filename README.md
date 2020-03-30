@@ -6,48 +6,82 @@
 
 A PHP coding standard for Unleashed Technologies, originally based on [doctrine/coding-standard](https://github.com/doctrine/coding-standard).
 
+## Overview
+
+This coding standard is based on [PSR-1](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md) and [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md),
+with some noticeable exceptions/differences/extensions based on best-practices adopted by Symfony, Doctrine, and the wider community:
+
+- Keep the nesting of control structures per method as small as possible
+- Align equals (``=``) signs in assignments
+- Add spaces around a concatenation operator ``$foo = 'Hello ' . 'World!';``
+- Add spaces between assignment, control and return statements
+- Add spaces after the colon in return type declaration ``function (): void {}``
+- Add spaces after a type cast ``$foo = (int) '12345';``
+- Use single-quotes for enclosing strings
+- Always use strict comparisons
+- Always add ``declare(strict_types=1)`` at the beginning of a file
+- Always add native types where possible
+- Omit phpDoc for parameters/returns with native types, unless adding description
+- Don't use ``@author``, ``@since`` and similar annotations that duplicate Git information
+- Use parentheses when creating new instances that do not require arguments ``$foo = new Foo()``
+- Use Null Coalesce Operator ``$foo = $bar ?? $baz``
+- Prefer early exit over nesting conditions or using else
+
+For full reference of enforcements, go through ``src/Unleashed/ruleset.xml`` where each sniff is briefly described.
+
 ## Installation
 
-### Composer
+You can install the Unleashed Coding Standard as a [Composer](https://getcomposer.org/) dependency in your project:
 
-This standard can be installed with the [Composer](https://getcomposer.org/) dependency manager.
+```sh
+composer require --dev unleashedtech/php-coding-standard
+```
 
-1. [Install Composer](https://getcomposer.org/doc/00-intro.md)
+Then you can use it like this:
 
-2. Install the coding standard as a dependency of your project
+```sh
+vendor/bin/phpcs --standard=Unleashed /path/to/some/files.php
+```
 
-        composer require --dev unleashedtech/php-coding-standard
+You can also use `phpcbp` to automatically find and fix any violations:
 
-3. Add the coding standard to the PHP_CodeSniffer install path
+```sh
+vendor/bin/phpcbf --standard=Unleashed /path/to/some/files.php
+```
 
-        vendor/bin/phpcs --config-set installed_paths vendor/unleashedtech/php-coding-standard
+### Project-Level Ruleset
 
-4. Check the installed coding standards for "Unleashed"
+To enable the Unleashed Coding Standard for your project, create a `phpcs.xml.dist` file with the following content:
 
-        vendor/bin/phpcs -i
+```xml
+<?xml version="1.0"?>
+<ruleset>
+    <arg name="basepath" value="."/>
+    <arg name="extensions" value="php"/>
+    <arg name="parallel" value="80"/>
+    <arg name="cache" value=".phpcs-cache"/>
+    <arg name="colors"/>
 
-5. Done!
+    <!-- Ignore warnings, show progress of the run and show sniff names -->
+    <arg value="nps"/>
 
-        vendor/bin/phpcs /path/to/code
+    <!-- Directories to be checked -->
+    <file>src</file>
+    <file>tests</file>
 
-### Stand-alone
+    <!-- Include full Doctrine Coding Standard -->
+    <rule ref="Doctrine"/>
+</ruleset>
+```
 
-1. Install [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
 
-2. Checkout this repository
+This will enable the full Unleashed Coding Standard with all rules included with their defaults.
+From now on you can just run `vendor/bin/phpcs` and `vendor/bin/phpcbf` without any arguments.
 
-        git clone git://github.com/unleashedtech/php-coding-standard.git
+Don't forget to add `.phpcs-cache` and `phpcs.xml` (without `.dist` suffix) to your `.gitignore`.
+The first ignored file is a cache used by PHP CodeSniffer to speed things up,
+the second one allows any developer to adjust configuration locally without touching the versioned file.
 
-3. Add the coding standard to the PHP_CodeSniffer install path
-
-        phpcs --config-set installed_paths /path/to/php-coding-standard
-
-   Or copy/symlink this repository's "Unleashed"-folder inside the phpcs `Standards` directory
-
-4. Check the installed coding standards for "Unleashed"
-
-        phpcs -i
-
-5. Done!
-
-        phpcs /path/to/code
+For further reading about the CodeSniffer configuration, please refer to
+[the configuration format overview](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-Ruleset)
+and [the list of configuration options](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Configuration-Options).
