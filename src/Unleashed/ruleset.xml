@@ -284,11 +284,13 @@
         <properties>
             <property name="allowFullyQualifiedExceptions" value="true"/>
             <property name="allowFullyQualifiedGlobalClasses" value="true"/>
-            <property name="allowFullyQualifiedGlobalConstants" value="false"/>
-            <property name="allowFullyQualifiedGlobalFunctions" value="false"/>
+            <property name="allowFullyQualifiedGlobalConstants" value="true"/>
+            <property name="allowFullyQualifiedGlobalFunctions" value="true"/>
             <property name="searchAnnotations" value="true"/>
         </properties>
     </rule>
+    <!-- Force usage of fully-qualified global functions -->
+    <rule ref="FullyQualifiedGlobalFunctions"/>
     <!-- Forbid unused use statements -->
     <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses">
         <properties>

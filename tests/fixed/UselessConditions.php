@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace Conditions;
 
-use function count;
-use function strpos;
-
 class UselessConditions
 {
     public function uselessCondition(): bool
@@ -124,11 +121,11 @@ class UselessConditions
      */
     public function uselessTernaryCheck(array $words): bool
     {
-        return count($words) < 1;
+        return \count($words) < 1;
     }
 
     public function necessaryTernary(): int
     {
-        return strpos('foo', 'This is foo and bar') !== false ? 1 : 0;
+        return \strpos('foo', 'This is foo and bar') !== false ? 1 : 0;
     }
 }

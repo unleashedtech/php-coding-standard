@@ -26,6 +26,7 @@ with some noticeable exceptions/differences/extensions based on best-practices a
 - Use parentheses when creating new instances that do not require arguments ``$foo = new Foo()``
 - Use Null Coalesce Operator ``$foo = $bar ?? $baz``
 - Prefer early exit over nesting conditions or using else
+- Always use fully-qualified global functions (without needing `use function` statements)
 
 For full reference of enforcements, go through ``src/Unleashed/ruleset.xml`` where each sniff is briefly described.
 
