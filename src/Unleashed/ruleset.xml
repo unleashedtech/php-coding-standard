@@ -6,6 +6,10 @@
 >
     <description>The Unleashed Technologies PHP coding standard.</description>
 
+    <!-- Don't apply to CSS or JS; we have separate standards for those -->
+    <exclude-pattern>*.css</exclude-pattern>
+    <exclude-pattern>*.js</exclude-pattern>
+
     <!-- Import PSR-12 coding standard (base) -->
     <rule ref="PSR12">
         <!-- checked by SlevomatCodingStandard.Namespaces.NamespaceSpacing -->
