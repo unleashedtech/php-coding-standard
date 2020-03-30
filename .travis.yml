@@ -25,6 +25,7 @@ install: travis_retry composer update --prefer-dist
 
 script:
   - vendor/bin/phpcs
+  - vendor/bin/phpunit
   - make test-report
 
 stages:

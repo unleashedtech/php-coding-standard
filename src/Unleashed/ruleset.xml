@@ -289,8 +289,6 @@
             <property name="searchAnnotations" value="true"/>
         </properties>
     </rule>
-    <!-- Force usage of fully-qualified global functions -->
-    <rule ref="FullyQualifiedGlobalFunctions"/>
     <!-- Forbid unused use statements -->
     <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses">
         <properties>

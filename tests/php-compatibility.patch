@@ -1,8 +1,26 @@
+diff --git a/src/Unleashed/Sniffs/Namespaces/FullyQualifiedGlobalFunctionsSniff.php b/src/Unleashed/Sniffs/Namespaces/FullyQualifiedGlobalFunctionsSniff.php
+index 1905143..518a85b 100644
+--- a/src/Unleashed/Sniffs/Namespaces/FullyQualifiedGlobalFunctionsSniff.php
++++ b/src/Unleashed/Sniffs/Namespaces/FullyQualifiedGlobalFunctionsSniff.php
+@@ -11,11 +11,10 @@ use Unleashed\SniffHelper;
+ 
+ final class FullyQualifiedGlobalFunctionsSniff implements Sniff
+ {
+-    /** @var bool */
+-    public $onlyOptimizedFunctions = false;
++    public bool $onlyOptimizedFunctions = false;
+ 
+     /** @var array<string, bool> */
+-    private $optimizedFunctions = [
++    private array $optimizedFunctions = [
+         // @see https://github.com/php/php-src/blob/PHP-7.4/Zend/zend_compile.c "zend_try_compile_special_func"
+         'array_key_exists'     => true,
+         'array_slice'          => true,
 diff --git a/tests/expected_report.txt b/tests/expected_report.txt
-index 1ecfaaa..262b310 100644
+index 1ecfaaa..30d43c6 100644
 --- a/tests/expected_report.txt
 +++ b/tests/expected_report.txt
-@@ -6,45 +6,45 @@ FILE                                                  ERRORS  WARNINGS
+@@ -6,45 +6,46 @@ FILE                                                  ERRORS  WARNINGS
  tests/input/array_indentation.php                     10      0
  tests/input/assignment-operators.php                  4       0
  tests/input/binary_operators.php                      9       0
@@ -52,16 +70,17 @@ index 1ecfaaa..262b310 100644
 -tests/input/UnusedVariables.php                       3       0
 -tests/input/use-ordering.php                          6       0
 +tests/input/UnusedVariables.php                       2       0
++tests/input/use-function.php                          2       0
 +tests/input/use-ordering.php                          9       0
  tests/input/useless-semicolon.php                     2       0
 -tests/input/UselessConditions.php                     26      0
 +tests/input/UselessConditions.php                     23      0
  ----------------------------------------------------------------------
 -A TOTAL OF 388 ERRORS AND 2 WARNINGS WERE FOUND IN 38 FILES
-+A TOTAL OF 362 ERRORS AND 2 WARNINGS WERE FOUND IN 38 FILES
++A TOTAL OF 364 ERRORS AND 2 WARNINGS WERE FOUND IN 39 FILES
  ----------------------------------------------------------------------
 -PHPCBF CAN FIX 331 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
-+PHPCBF CAN FIX 305 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
++PHPCBF CAN FIX 307 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
  ----------------------------------------------------------------------
  
  
