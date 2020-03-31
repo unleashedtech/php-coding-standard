@@ -1,8 +1,13 @@
-.PHONY: test test-report test-fix update-compatibility-patch
+.PHONY: test phpcs test-report test-fix update-compatibility-patch
 
 PHP_74_OR_NEWER=`php -r "echo (int) version_compare(PHP_VERSION, '7.4', '>=');"`
 
 test: test-report test-fix
+
+phpcs:
+	@if [ $(PHP_74_OR_NEWER) -eq 1 ]; then git apply tests/php-compatibility.patch; fi
+	@vendor/bin/phpcs src
+	@if [ $(PHP_74_OR_NEWER) -eq 1 ]; then git apply -R tests/php-compatibility.patch; fi
 
 test-report: vendor
 	@if [ $(PHP_74_OR_NEWER) -eq 1 ]; then git apply tests/php-compatibility.patch; fi
