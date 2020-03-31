@@ -32,7 +32,10 @@ final class SniffHelper
                         continue;
                     }
 
-                    if ($useStatement->getAlias() !== null || \strpos($useStatement->getFullyQualifiedTypeName(), '\\') !== false) {
+                    if (
+                        $useStatement->getAlias() !== null
+                        || \strpos($useStatement->getFullyQualifiedTypeName(), '\\') !== false
+                    ) {
                         $result[$useStatement->getCanonicalNameAsReferencedInFile()] = true;
                     }
                 }

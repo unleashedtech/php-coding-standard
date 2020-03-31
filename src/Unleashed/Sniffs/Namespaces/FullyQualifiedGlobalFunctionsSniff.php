@@ -82,7 +82,10 @@ final class FullyQualifiedGlobalFunctionsSniff implements Sniff
      */
     public function process(File $phpcsFile, $stackPtr)
     {
-        if ($this->onlyOptimizedFunctions !== null && \filter_var($this->onlyOptimizedFunctions, FILTER_VALIDATE_BOOLEAN) !== false) {
+        if (
+            $this->onlyOptimizedFunctions !== null
+            && \filter_var($this->onlyOptimizedFunctions, FILTER_VALIDATE_BOOLEAN) !== false
+        ) {
             $globalFunctions = $this->optimizedFunctions;
         } else {
             $globalFunctions = \array_flip(\get_defined_functions()['internal']);
@@ -152,7 +155,10 @@ final class FullyQualifiedGlobalFunctionsSniff implements Sniff
     private function applyFix(File $phpcsFile, int $stackPtr, string $function): void
     {
         // This sniff conflicts with ModernClassNameReferenceSniff, so don't bother fixing things it will attempt to fix
-        if (\array_key_exists(ModernClassNameReferenceSniff::class, $phpcsFile->ruleset->sniffs) && \in_array($function, ['get_class', 'get_parent_class', 'get_called_class'], true)) {
+        if (
+            \array_key_exists(ModernClassNameReferenceSniff::class, $phpcsFile->ruleset->sniffs)
+            && \in_array($function, ['get_class', 'get_parent_class', 'get_called_class'], true)
+        ) {
             return;
         }
 
