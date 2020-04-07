@@ -70,8 +70,8 @@ To enable the Unleashed Coding Standard for your project, create a `phpcs.xml.di
     <file>src</file>
     <file>tests</file>
 
-    <!-- Include full Doctrine Coding Standard -->
-    <rule ref="Doctrine"/>
+    <!-- Include full Unleashed Coding Standard -->
+    <rule ref="Unleashed"/>
 </ruleset>
 ```
 
