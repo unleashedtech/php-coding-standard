@@ -82,6 +82,11 @@ final class FullyQualifiedGlobalFunctionsSniff implements Sniff
      */
     public function process(File $phpcsFile, $stackPtr)
     {
+        // Abort if we're not in namespaced code
+        if ($phpcsFile->findPrevious([T_NAMESPACE], $stackPtr - 1) === false) {
+            return;
+        }
+
         if (
             $this->onlyOptimizedFunctions !== null
             && \filter_var($this->onlyOptimizedFunctions, FILTER_VALIDATE_BOOLEAN) !== false
