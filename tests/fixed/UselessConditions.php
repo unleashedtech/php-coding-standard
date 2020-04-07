@@ -94,7 +94,7 @@ class UselessConditions
 
     public function nullShouldNotBeTreatedAsFalse(): ?bool
     {
-        if (!$this->isAdmin) {
+        if (! $this->isAdmin) {
             return null;
         }
 

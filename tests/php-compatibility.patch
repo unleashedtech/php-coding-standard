@@ -17,7 +17,7 @@ index eee1c6f..742226e 100644
          'array_key_exists'     => true,
          'array_slice'          => true,
 diff --git a/tests/expected_report.txt b/tests/expected_report.txt
-index 1ecfaaa..30d43c6 100644
+index 1ecfaaa..06d22b0 100644
 --- a/tests/expected_report.txt
 +++ b/tests/expected_report.txt
 @@ -6,45 +6,46 @@ FILE                                                  ERRORS  WARNINGS
@@ -49,7 +49,8 @@ index 1ecfaaa..30d43c6 100644
 +tests/input/NamingCamelCase.php                       8       0
  tests/input/negation-operator.php                     2       0
  tests/input/new_with_parentheses.php                  18      0
- tests/input/not_spacing.php                           6       0
+-tests/input/not_spacing.php                           6       0
++tests/input/not_spacing.php                           8       0
  tests/input/null_coalesce_operator.php                3       0
 -tests/input/optimized-functions.php                   1       0
 -tests/input/return_type_on_closures.php               29      0
@@ -77,15 +78,15 @@ index 1ecfaaa..30d43c6 100644
 +tests/input/UselessConditions.php                     23      0
  ----------------------------------------------------------------------
 -A TOTAL OF 388 ERRORS AND 2 WARNINGS WERE FOUND IN 38 FILES
-+A TOTAL OF 364 ERRORS AND 2 WARNINGS WERE FOUND IN 39 FILES
++A TOTAL OF 366 ERRORS AND 2 WARNINGS WERE FOUND IN 39 FILES
  ----------------------------------------------------------------------
 -PHPCBF CAN FIX 331 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
-+PHPCBF CAN FIX 307 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
++PHPCBF CAN FIX 309 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
  ----------------------------------------------------------------------
  
  
 diff --git a/tests/fixed/example-class.php b/tests/fixed/example-class.php
-index 9df3d20..108bb03 100644
+index 0f98ce6..050d89c 100644
 --- a/tests/fixed/example-class.php
 +++ b/tests/fixed/example-class.php
 @@ -18,14 +18,12 @@ class Example implements \IteratorAggregate

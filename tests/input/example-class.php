@@ -70,7 +70,7 @@ class Example implements \IteratorAggregate
      */
     public function mangleBar(int $length) : void
     {
-        if (!$this->baz) {
+        if (! $this->baz) {
             throw new \InvalidArgumentException();
         }
 

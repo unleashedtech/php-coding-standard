@@ -55,12 +55,8 @@
             <property name="spacing" value="1"/>
         </properties>
     </rule>
-    <!-- Force no whitespace after `!` -->
-    <rule ref="Generic.Formatting.SpaceAfterNot">
-        <properties>
-            <property name="spacing" value="0" />
-        </properties>
-    </rule>
+    <!-- Force whitespace after `!` -->
+    <rule ref="Generic.Formatting.SpaceAfterNot"/>
     <!-- Forbid PHP 4 constructors -->
     <rule ref="Generic.NamingConventions.ConstructorName"/>
     <!-- Forbid any content before opening tag -->
