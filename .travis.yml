@@ -11,7 +11,7 @@ before_script:
   - stable='^[0-9\.]+$'; if [[ "$TRAVIS_PHP_VERSION" =~ $stable ]]; then phpenv config-rm xdebug.ini; fi
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - composer install
-  - phpunit --version
+  - ./vendor/bin/phpunit --version
 
 script:
     - composer test
