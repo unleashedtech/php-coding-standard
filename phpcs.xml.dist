@@ -9,6 +9,7 @@
     <arg name="basepath" value="."/>
     <arg name="extensions" value="php"/>
     <arg name="colors" />
+    <arg value="ps" />
 
     <!-- Show progress of the run -->
     <arg value="p"/>
