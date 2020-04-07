@@ -75,6 +75,7 @@ class ObjectInstantiationSniff implements Sniff
                     'Invalid'
                 );
             }
+
             return;
         }
 

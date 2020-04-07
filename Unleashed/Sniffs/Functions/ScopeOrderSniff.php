@@ -105,7 +105,7 @@ class ScopeOrderSniff implements Sniff
                         true
                     )
                 ) {
-                    $current = array_keys($scopes,  $tokens[$scope]['code'], true);
+                    $current = array_keys($scopes, $tokens[$scope]['code'], true);
                     $current = $current[0];
 
                     $error = 'Declare public methods first, then protected ones and finally private ones';

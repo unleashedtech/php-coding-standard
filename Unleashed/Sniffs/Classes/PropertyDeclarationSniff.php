@@ -37,7 +37,7 @@ class PropertyDeclarationSniff implements Sniff
     {
         return [
             T_CLASS,
-            T_ANON_CLASS
+            T_ANON_CLASS,
         ];
     }
 
