@@ -464,6 +464,8 @@
         <exclude name="Squiz.Commenting.FunctionComment.ParamNameNoMatch"/>
         <!-- Doesn't respect inheritance -->
         <exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/>
+        <!-- Comments don't have to be sentences -->
+        <exclude name="Squiz.Commenting.FunctionComment.ThrowsNoFullStop"/>
         <!-- `@throws` lines can often be read as a sentence,
              i.e. `@throws RuntimeException if the file could not be written.` -->
         <exclude name="Squiz.Commenting.FunctionComment.ThrowsNotCapital"/>
