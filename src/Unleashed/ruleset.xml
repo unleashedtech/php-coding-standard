@@ -265,6 +265,8 @@
     <rule ref="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly"/>
     <!-- Require closures not referencing $this be static -->
     <rule ref="SlevomatCodingStandard.Functions.StaticClosure"/>
+    <!-- Require calls to PHP functions that have a `$strict` parameter to always set that to `true` -->
+    <rule ref="SlevomatCodingStandard.Functions.StrictCall"/>
     <!-- Forbid unused variables passed to closures via `use` -->
     <rule ref="SlevomatCodingStandard.Functions.UnusedInheritedVariablePassedToClosure"/>
     <!-- Require use statements to be alphabetically sorted -->

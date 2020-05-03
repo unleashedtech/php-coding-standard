@@ -1,8 +1,21 @@
+diff --git a/src/Unleashed/Helpers/SniffLocalCache.php b/src/Unleashed/Helpers/SniffLocalCache.php
+index ad0792f..a8eaab3 100644
+--- a/src/Unleashed/Helpers/SniffLocalCache.php
++++ b/src/Unleashed/Helpers/SniffLocalCache.php
+@@ -14,7 +14,7 @@ use PHP_CodeSniffer\Files\File;
+ final class SniffLocalCache
+ {
+     /** @var array<int, array<string, mixed>> */
+-    private static $cache = [];
++    private static array $cache = [];
+ 
+     /**
+      * @return mixed
 diff --git a/src/Unleashed/Sniffs/Namespaces/FullyQualifiedGlobalFunctionsSniff.php b/src/Unleashed/Sniffs/Namespaces/FullyQualifiedGlobalFunctionsSniff.php
-index fe018ad..4810bd0 100644
+index 71be9a5..f9492c7 100644
 --- a/src/Unleashed/Sniffs/Namespaces/FullyQualifiedGlobalFunctionsSniff.php
 +++ b/src/Unleashed/Sniffs/Namespaces/FullyQualifiedGlobalFunctionsSniff.php
-@@ -11,11 +11,10 @@ use Unleashed\SniffHelper;
+@@ -11,11 +11,10 @@ use Unleashed\Helpers\UseStatements;
  
  final class FullyQualifiedGlobalFunctionsSniff implements Sniff
  {
@@ -17,15 +30,11 @@ index fe018ad..4810bd0 100644
          'array_key_exists'     => true,
          'array_slice'          => true,
 diff --git a/tests/expected_report.txt b/tests/expected_report.txt
-index 1ecfaaa..975b9ca 100644
+index 0ab45ec..fc414f1 100644
 --- a/tests/expected_report.txt
 +++ b/tests/expected_report.txt
-@@ -11,40 +11,42 @@ tests/input/concatenation_spacing.php                 49      0
- tests/input/constants-no-lsb.php                      2       0
- tests/input/constants-var.php                         4       0
- tests/input/ControlStructures.php                     17      2
--tests/input/doc-comment-spacing.php                   14      0
-+tests/input/doc-comment-spacing.php                   12      0
+@@ -14,7 +14,7 @@ tests/input/ControlStructures.php                     17      2
+ tests/input/doc-comment-spacing.php                   12      0
  tests/input/duplicate-assignment-variable.php         1       0
  tests/input/EarlyReturn.php                           6       0
 -tests/input/example-class.php                         38      0
@@ -33,48 +42,23 @@ index 1ecfaaa..975b9ca 100644
  tests/input/forbidden-comments.php                    14      0
  tests/input/forbidden-functions.php                   5       0
  tests/input/fully-qualified-and-fallbacks.php         1       0
-+tests/input/fully-qualified-without-namespace.php     3       0
- tests/input/inline_type_hint_assertions.php           7       0
--tests/input/LowCaseTypes.php                          4       0
--tests/input/namespaces-spacing.php                    8       0
--tests/input/NamingCamelCase.php                       9       0
-+tests/input/LowCaseTypes.php                          3       0
-+tests/input/namespaces-spacing.php                    12      0
-+tests/input/NamingCamelCase.php                       8       0
- tests/input/negation-operator.php                     2       0
- tests/input/new_with_parentheses.php                  18      0
--tests/input/not_spacing.php                           6       0
-+tests/input/not_spacing.php                           8       0
- tests/input/null_coalesce_operator.php                3       0
- tests/input/optimized-functions.php                   1       0
--tests/input/return_type_on_closures.php               29      0
--tests/input/return_type_on_methods.php                25      0
-+tests/input/return_type_on_closures.php               17      0
-+tests/input/return_type_on_methods.php                13      0
- tests/input/semicolon_spacing.php                     3       0
- tests/input/single-line-array-spacing.php             5       0
--tests/input/spread-operator.php                       18      0
-+tests/input/spread-operator.php                       10      0
- tests/input/static-closures.php                       1       0
+@@ -38,16 +38,16 @@ tests/input/strict-functions.php                      4       0
  tests/input/test-case.php                             7       0
  tests/input/trailing_comma_on_array.php               1       0
--tests/input/traits-uses.php                           14      0
-+tests/input/traits-uses.php                           11      0
- tests/input/type-hints.php                            6       0
--tests/input/UnusedVariables.php                       3       0
--tests/input/use-ordering.php                          6       0
-+tests/input/UnusedVariables.php                       2       0
-+tests/input/use-function.php                          2       0
-+tests/input/use-ordering.php                          9       0
+ tests/input/traits-uses.php                           11      0
+-tests/input/type-hints.php                            5       0
++tests/input/type-hints.php                            6       0
+ tests/input/UnusedVariables.php                       2       0
+ tests/input/use-function.php                          2       0
+ tests/input/use-ordering.php                          9       0
  tests/input/useless-semicolon.php                     2       0
--tests/input/UselessConditions.php                     26      0
-+tests/input/UselessConditions.php                     23      0
+ tests/input/UselessConditions.php                     23      0
  ----------------------------------------------------------------------
--A TOTAL OF 388 ERRORS AND 2 WARNINGS WERE FOUND IN 38 FILES
-+A TOTAL OF 362 ERRORS AND 2 WARNINGS WERE FOUND IN 40 FILES
+-A TOTAL OF 362 ERRORS AND 2 WARNINGS WERE FOUND IN 41 FILES
++A TOTAL OF 366 ERRORS AND 2 WARNINGS WERE FOUND IN 41 FILES
  ----------------------------------------------------------------------
--PHPCBF CAN FIX 331 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
-+PHPCBF CAN FIX 305 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
+-PHPCBF CAN FIX 303 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
++PHPCBF CAN FIX 307 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
  ----------------------------------------------------------------------
  
  
