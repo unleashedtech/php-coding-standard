@@ -11,9 +11,6 @@
     <arg name="colors" />
     <arg value="ps" />
 
-    <!-- Show progress of the run -->
-    <arg value="p"/>
-
     <rule ref="Unleashed"/>
 
     <file>src</file>
