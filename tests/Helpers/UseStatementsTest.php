@@ -1,17 +1,17 @@
 <?php
 
-namespace Helpers;
+namespace Unleashed\Tests\Helpers;
 
-use Unleashed\SniffHelper;
+use Unleashed\Helpers\UseStatements;
 use Unleashed\Tests\PHPCSTestCase;
 
-final class SniffHelperTest extends PHPCSTestCase
+final class UseStatementsTest extends PHPCSTestCase
 {
     public function testGetAliasesAndNonGlobalFunctionsDefinedInUseStatements()
     {
         $file = $this->getCodeSnifferFile(__DIR__ . '/data/useStatements.php');
 
-        $result = SniffHelper::getAliasesAndNonGlobalFunctionsDefinedInUseStatements($file);
+        $result = UseStatements::getAliasesAndNonGlobalFunctionsDefinedInUseStatements($file);
         $expected = [
             'stringlength',
             'isbar',

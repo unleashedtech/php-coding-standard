@@ -7,7 +7,7 @@ namespace Unleashed\Sniffs\Namespaces;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use SlevomatCodingStandard\Sniffs\Classes\ModernClassNameReferenceSniff;
-use Unleashed\SniffHelper;
+use Unleashed\Helpers\UseStatements;
 
 final class FullyQualifiedGlobalFunctionsSniff implements Sniff
 {
@@ -96,7 +96,7 @@ final class FullyQualifiedGlobalFunctionsSniff implements Sniff
             $globalFunctions = \array_flip(\get_defined_functions()['internal']);
         }
 
-        $whitelist = SniffHelper::getAliasesAndNonGlobalFunctionsDefinedInUseStatements($phpcsFile);
+        $whitelist = UseStatements::getAliasesAndNonGlobalFunctionsDefinedInUseStatements($phpcsFile);
 
         $tokens    = $phpcsFile->getTokens();
         $ignore    = [
