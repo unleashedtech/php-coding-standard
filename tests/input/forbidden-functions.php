@@ -20,3 +20,11 @@ $bar = [
 \extract($bar);
 
 \compact('foo', 'bar');
+
+echo \empty('0') ? 'y' : 'n';
+
+d('foo');
+dd('foo');
+dump('foo');
+dump_d('foo');
+var_dump('foo');

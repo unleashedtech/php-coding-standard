@@ -30,7 +30,7 @@ index 71be9a5..f9492c7 100644
          'array_key_exists'     => true,
          'array_slice'          => true,
 diff --git a/tests/expected_report.txt b/tests/expected_report.txt
-index 0ab45ec..fc414f1 100644
+index 37294d1..abed1f8 100644
 --- a/tests/expected_report.txt
 +++ b/tests/expected_report.txt
 @@ -14,7 +14,7 @@ tests/input/ControlStructures.php                     17      2
@@ -40,12 +40,12 @@ index 0ab45ec..fc414f1 100644
 -tests/input/example-class.php                         38      0
 +tests/input/example-class.php                         41      0
  tests/input/forbidden-comments.php                    14      0
- tests/input/forbidden-functions.php                   5       0
+ tests/input/forbidden-functions.php                   13      0
  tests/input/fully-qualified-and-fallbacks.php         1       0
-@@ -38,16 +38,16 @@ tests/input/strict-functions.php                      4       0
+@@ -39,16 +39,16 @@ tests/input/strict-functions.php                      4       0
  tests/input/test-case.php                             7       0
  tests/input/trailing_comma_on_array.php               1       0
- tests/input/traits-uses.php                           11      0
+ tests/input/traits-uses.php                           12      0
 -tests/input/type-hints.php                            5       0
 +tests/input/type-hints.php                            6       0
  tests/input/UnusedVariables.php                       2       0
@@ -54,11 +54,11 @@ index 0ab45ec..fc414f1 100644
  tests/input/useless-semicolon.php                     2       0
  tests/input/UselessConditions.php                     23      0
  ----------------------------------------------------------------------
--A TOTAL OF 362 ERRORS AND 2 WARNINGS WERE FOUND IN 41 FILES
-+A TOTAL OF 366 ERRORS AND 2 WARNINGS WERE FOUND IN 41 FILES
+-A TOTAL OF 389 ERRORS AND 2 WARNINGS WERE FOUND IN 42 FILES
++A TOTAL OF 393 ERRORS AND 2 WARNINGS WERE FOUND IN 42 FILES
  ----------------------------------------------------------------------
--PHPCBF CAN FIX 303 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
-+PHPCBF CAN FIX 307 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
+-PHPCBF CAN FIX 320 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
++PHPCBF CAN FIX 324 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
  ----------------------------------------------------------------------
  
  

@@ -30,6 +30,9 @@ final class TestCase extends BaseTestCase
      * @uses MyClass::__construct
      *
      * @test
+     *
+     * @expectedException \RuntimeException
+     *
      * @covers MyClass::test
      */
     public function methodShouldDoStuff(): void

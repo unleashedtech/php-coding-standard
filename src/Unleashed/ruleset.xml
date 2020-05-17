@@ -26,6 +26,13 @@
         <exclude name="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
     </rule>
 
+    <!-- Warn about TODOs and FIXMEs in code. -->
+    <rule ref="Generic.Commenting.Fixme"/>
+    <rule ref="Generic.Commenting.Todo"/>
+
+    <!-- Forbid merge conflict artifacts left in files -->
+    <rule ref="Generic.VersionControl.GitMergeConflict"/>
+
     <!-- Force array element indentation with 4 spaces -->
     <rule ref="Generic.Arrays.ArrayIndent"/>
     <!-- Forbid `array(...)` -->
@@ -87,6 +94,14 @@
                 <element key="show_source" value="highlight_file"/>
                 <element key="sizeof" value="count"/>
                 <element key="strchr" value="strstr"/>
+                <!-- Forbid 'empty()'; use more strict comparison instead -->
+                <element key="empty" value="null"/>
+                <!-- Forbid remaining debug functions in the code -->
+                <element key="d" value="null"/>
+                <element key="dd" value="null"/>
+                <element key="dump" value="null"/>
+                <element key="dump_d" value="null"/>
+                <element key="var_dump" value="null"/>
             </property>
         </properties>
     </rule>
@@ -119,6 +134,12 @@
     <rule ref="SlevomatCodingStandard.Classes.ClassConstantVisibility">
         <properties>
             <property name="fixable" value="true"/>
+        </properties>
+    </rule>
+    <!-- Require one line between each class member -->
+    <rule ref="SlevomatCodingStandard.Classes.ClassMemberSpacing">
+        <properties>
+            <property name="linesCountBetweenMembers" value="1"/>
         </properties>
     </rule>
     <!-- Forbid LSB for constants (static::FOO) -->
@@ -165,6 +186,10 @@
                     @see,
                     @uses,
                 "/>
+                <!-- PHPUnit -->
+                <element value="@test, @group, @dataProvider, @depends, @doesNotPerformAssertions, @runInSeparateProcess, @runTestsInSeparateProcesses"/>
+                <element value="@expectedDeprecation, @expectedException, @expectedExceptionCode, @expectedExceptionMessage, @expectedExceptionMessageRegExp"/>
+                <element value="@covers, @coversNothing, @coversDefaultClass"/>
                 <!-- Doctrine ORM and Extensions -->
                 <element value="
                     @ORM\,
@@ -177,6 +202,23 @@
                 <element value="@param"/>
                 <element value="@return"/>
                 <element value="@throws"/>
+                <element value="
+                    @psalm-var,
+                    @psalm-param,
+                    @psalm-return,
+                "/>
+                <element value="
+                    @property,
+                    @property-read,
+                    @property-write,
+                    @psalm-property,
+                    @psalm-property-read,
+                    @psalm-proprty-write,
+                "/>
+                <element value="
+                    @param-out,
+                "/>
+                <element value="@phpcsSuppress"/>
             </property>
         </properties>
     </rule>
@@ -253,6 +295,8 @@
     </rule>
     <!-- Require language constructs without parentheses -->
     <rule ref="SlevomatCodingStandard.ControlStructures.LanguageConstructWithParentheses"/>
+    <!-- Require new instances with parentheses -->
+    <rule ref="SlevomatCodingStandard.ControlStructures.NewWithParentheses"/>
     <!-- Require usage of null coalesce operator when possible -->
     <rule ref="SlevomatCodingStandard.ControlStructures.RequireNullCoalesceOperator"/>
     <!-- Forbid usage of conditions when a simple return can be used -->
@@ -270,7 +314,12 @@
     <!-- Forbid unused variables passed to closures via `use` -->
     <rule ref="SlevomatCodingStandard.Functions.UnusedInheritedVariablePassedToClosure"/>
     <!-- Require use statements to be alphabetically sorted -->
-    <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses"/>
+    <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses">
+        <properties>
+            <property name="psr12Compatible" value="true"/>
+            <property name="caseSensitive" value="true"/>
+        </properties>
+    </rule>
     <!-- Forbid fancy group uses -->
     <rule ref="SlevomatCodingStandard.Namespaces.DisallowGroupUse"/>
     <!-- Forbid multiple use statements on same line -->
@@ -315,6 +364,12 @@
     <rule ref="SlevomatCodingStandard.Operators.RequireCombinedAssignmentOperator"/>
     <!-- Require no spacing after spread operator -->
     <rule ref="SlevomatCodingStandard.Operators.SpreadOperatorSpacing"/>
+    <!-- Require 0 spaces after the reference '&' operator -->
+    <rule ref="SlevomatCodingStandard.PHP.ReferenceSpacing">
+        <properties>
+            <property name="spacesCountAfterReference" value="0"/>
+        </properties>
+    </rule>
     <!-- Forbid argument unpacking for functions specialized by PHP VM -->
     <rule ref="SlevomatCodingStandard.PHP.OptimizedFunctionsWithoutUnpacking"/>
     <!-- Forbid `list(...)` syntax -->
