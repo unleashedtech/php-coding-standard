@@ -51,7 +51,7 @@ class Test
      * @internal
      * @link https://example.com
      * @ODM\Id
-     * @deprecated
+     * @deprecated Use c() instead
      * @PHPCR\Uuid
      * @param int[] $bar
      * @PHPCR\Field

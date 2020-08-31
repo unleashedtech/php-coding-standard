@@ -253,6 +253,8 @@
             </property>
         </properties>
     </rule>
+    <!-- Require a description for all deprecations -->
+    <rule ref="SlevomatCodingStandard.Commenting.DeprecatedAnnotationDeclaration"/>
     <!-- Report invalid format of inline phpDocs with @var -->
     <rule ref="SlevomatCodingStandard.Commenting.InlineDocCommentDeclaration"/>
     <!-- Require comments with single line written as one-liners -->

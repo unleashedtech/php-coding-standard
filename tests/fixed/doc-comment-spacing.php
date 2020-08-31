@@ -43,7 +43,7 @@ class Test
      * More Description
      *
      * @internal
-     * @deprecated
+     * @deprecated Use c() instead
      *
      * @link https://example.com
      * @see  other
