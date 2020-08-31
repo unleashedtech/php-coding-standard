@@ -1,0 +1,116 @@
+name: "Test"
+
+on:
+    pull_request:
+    push:
+        branches:
+            - "master"
+    schedule:
+        - cron: "0 8 * * *"
+
+jobs:
+    phpcs:
+        name: PHPCS
+        runs-on: ubuntu-18.04
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - uses: shivammathur/setup-php@v2
+              with:
+                  php-version: 7.2
+                  extensions: curl
+                  coverage: none
+                  tools: composer:v2, cs2pr
+
+            - run: composer update --no-interaction --no-progress
+
+            - run: vendor/bin/phpcs -q --report=checkstyle | cs2pr
+
+    validate-against-schema:
+        name: Validate against schema
+        runs-on: ubuntu-18.04
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - uses: shivammathur/setup-php@v2
+              with:
+                  php-version: 7.1
+                  extensions: curl
+                  coverage: none
+                  tools: composer:v2
+
+            - run: composer update --no-interaction --no-progress
+
+            - name: Build Docker image
+              uses: ./.github/workflows/validate-against-schema
+
+            - name: Lint XML configuration files
+              uses: ./.github/workflows/validate-against-schema
+              with:
+                  args: xmllint --noout --schema vendor/squizlabs/php_codesniffer/phpcs.xsd src/Unleashed/ruleset.xml
+
+    phpunit:
+        name: PHPUnit
+        runs-on: ubuntu-18.04
+        strategy:
+            matrix:
+                php-version: ['7.1', '7.2', '7.3', '7.4']
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - uses: shivammathur/setup-php@v2
+              with:
+                  php-version: "${{ matrix.php-version }}"
+                  extensions: curl
+                  coverage: none
+
+            - run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+            - run: composer update --no-interaction --no-progress
+
+            - run: ./vendor/bin/simple-phpunit
+
+    test-report:
+        name: Test report
+        runs-on: ubuntu-18.04
+        strategy:
+            matrix:
+                php-version: ['7.1', '7.2', '7.3', '7.4']
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - uses: shivammathur/setup-php@v2
+              with:
+                  php-version: "${{ matrix.php-version }}"
+                  extensions: curl
+                  coverage: none
+
+            - run: composer update --no-interaction --no-progress
+
+            - name: Test reports
+              run: make test-report
+
+    test-fixes:
+        name: Test fixes
+        runs-on: ubuntu-18.04
+        strategy:
+            matrix:
+                php-version: ['7.1', '7.2', '7.3', '7.4']
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - uses: shivammathur/setup-php@v2
+              with:
+                  php-version: "${{ matrix.php-version }}"
+                  extensions: curl
+                  coverage: none
+
+            - run: composer update --no-interaction --no-progress
+
+            - name: Test fixes
+              run: make test-fix
