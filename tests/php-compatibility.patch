@@ -11,6 +11,19 @@ index ad0792f..a8eaab3 100644
  
      /**
       * @return mixed
+diff --git a/src/Unleashed/Sniffs/Commenting/ForbiddenSingleLineCommentsSniff.php b/src/Unleashed/Sniffs/Commenting/ForbiddenSingleLineCommentsSniff.php
+index 3bed058..94d3a48 100644
+--- a/src/Unleashed/Sniffs/Commenting/ForbiddenSingleLineCommentsSniff.php
++++ b/src/Unleashed/Sniffs/Commenting/ForbiddenSingleLineCommentsSniff.php
+@@ -13,7 +13,7 @@ final class ForbiddenSingleLineCommentsSniff implements Sniff
+     public const CODE_COMMENT_FORBIDDEN = 'CommentForbidden';
+ 
+     /** @var string[] */
+-    public $forbiddenCommentPatterns = [];
++    public array $forbiddenCommentPatterns = [];
+ 
+     /**
+      * @return array<int, (int|string)>
 diff --git a/src/Unleashed/Sniffs/Namespaces/FullyQualifiedGlobalFunctionsSniff.php b/src/Unleashed/Sniffs/Namespaces/FullyQualifiedGlobalFunctionsSniff.php
 index 71be9a5..f9492c7 100644
 --- a/src/Unleashed/Sniffs/Namespaces/FullyQualifiedGlobalFunctionsSniff.php
@@ -30,11 +43,11 @@ index 71be9a5..f9492c7 100644
          'array_key_exists'     => true,
          'array_slice'          => true,
 diff --git a/tests/expected_report.txt b/tests/expected_report.txt
-index 37294d1..abed1f8 100644
+index 827fedc..fe8f917 100644
 --- a/tests/expected_report.txt
 +++ b/tests/expected_report.txt
-@@ -14,7 +14,7 @@ tests/input/ControlStructures.php                     17      2
- tests/input/doc-comment-spacing.php                   12      0
+@@ -15,7 +15,7 @@ tests/input/doc-comment-spacing.php                   12      0
+ tests/input/doctrine-migration.php                    18      6
  tests/input/duplicate-assignment-variable.php         1       0
  tests/input/EarlyReturn.php                           6       0
 -tests/input/example-class.php                         38      0
@@ -42,7 +55,7 @@ index 37294d1..abed1f8 100644
  tests/input/forbidden-comments.php                    14      0
  tests/input/forbidden-functions.php                   13      0
  tests/input/fully-qualified-and-fallbacks.php         1       0
-@@ -39,16 +39,16 @@ tests/input/strict-functions.php                      4       0
+@@ -40,16 +40,16 @@ tests/input/strict-functions.php                      4       0
  tests/input/test-case.php                             7       0
  tests/input/trailing_comma_on_array.php               1       0
  tests/input/traits-uses.php                           12      0
@@ -54,11 +67,11 @@ index 37294d1..abed1f8 100644
  tests/input/useless-semicolon.php                     2       0
  tests/input/UselessConditions.php                     23      0
  ----------------------------------------------------------------------
--A TOTAL OF 389 ERRORS AND 2 WARNINGS WERE FOUND IN 42 FILES
-+A TOTAL OF 393 ERRORS AND 2 WARNINGS WERE FOUND IN 42 FILES
+-A TOTAL OF 407 ERRORS AND 8 WARNINGS WERE FOUND IN 43 FILES
++A TOTAL OF 411 ERRORS AND 8 WARNINGS WERE FOUND IN 43 FILES
  ----------------------------------------------------------------------
--PHPCBF CAN FIX 320 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
-+PHPCBF CAN FIX 324 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
+-PHPCBF CAN FIX 330 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
++PHPCBF CAN FIX 334 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
  ----------------------------------------------------------------------
  
  
