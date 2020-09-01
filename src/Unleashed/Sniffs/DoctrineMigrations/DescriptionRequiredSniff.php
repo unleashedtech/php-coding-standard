@@ -39,20 +39,28 @@ final class DescriptionRequiredSniff implements Sniff
         }
 
         // Only continue if we've found a Doctrine Migration class
-        $parentClassName = NamespaceHelper::resolveClassName($phpcsFile, $tokens[$parentClassPtr]['content'], $stackPtr);
-        if ($parentClassName !== '\\Doctrine\\Migrations\\AbstractMigration') {
+        $parentClass = NamespaceHelper::resolveClassName($phpcsFile, $tokens[$parentClassPtr]['content'], $stackPtr);
+        if ($parentClass !== '\\Doctrine\\Migrations\\AbstractMigration') {
             return;
         }
 
         // Does a `getDescription()` method exist?
-        $methodPtr = self::findMethodInClass($phpcsFile, 'getDescription', $parentClassPtr, self::findApproximateClassEndPointer($phpcsFile, $parentClassPtr));
+        $classEndPtr = self::findApproximateClassEndPointer($phpcsFile, $parentClassPtr);
+        $methodPtr   = self::findMethodInClass($phpcsFile, 'getDescription', $parentClassPtr, $classEndPtr);
         if ($methodPtr === null) {
-            // Nope
-            $fix = $phpcsFile->addFixableError('Doctrine Migrations must have a getDescription() method.', TokenHelper::findPrevious($phpcsFile, T_CLASS, $stackPtr), self::CODE_MISSING_DESCRIPTION);
+            // Nope - method is missing
+            $fix = $phpcsFile->addFixableError(
+                'Doctrine Migrations must have a getDescription() method.',
+                TokenHelper::findPrevious($phpcsFile, T_CLASS, $stackPtr),
+                self::CODE_MISSING_DESCRIPTION
+            );
+
             if ($fix) {
                 $phpcsFile->fixer->beginChangeset();
-                $placeholder = "\n    public function getDescription(): string\n    {\n        return '';\n    }";
-                $phpcsFile->fixer->addContent(TokenHelper::findNext($phpcsFile, T_OPEN_CURLY_BRACKET, $stackPtr), $placeholder);
+                $phpcsFile->fixer->addContent(
+                    TokenHelper::findNext($phpcsFile, T_OPEN_CURLY_BRACKET, $stackPtr),
+                    "\n    public function getDescription(): string\n    {\n        return '';\n    }"
+                );
                 $phpcsFile->fixer->endChangeset();
             }
 
@@ -65,7 +73,11 @@ final class DescriptionRequiredSniff implements Sniff
             return;
         }
 
-        $phpcsFile->addError('Doctrine Migrations cannot return an empty string from the getDescription() method; add a useful description instead', $returnValuePtr, self::CODE_EMPTY_DESCRIPTION);
+        $phpcsFile->addError(
+            'Doctrine Migrationss must return useful information from getDescription(); empty strings not allowed',
+            $returnValuePtr,
+            self::CODE_EMPTY_DESCRIPTION
+        );
     }
 
     private static function findMethodInClass(File $phpcsFile, string $methodName, int $startPtr, int $endPtr): ?int
