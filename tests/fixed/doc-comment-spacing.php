@@ -7,8 +7,26 @@ namespace Test;
 use BarException;
 use FooException;
 
+/**
+ * @template T
+ * @template-covariant
+ * @extends
+ * @implements
+ *
+ * @phpstan-template
+ * @phpstan-template-covariant
+ * @phpstan-extends
+ * @phpstan-implements T
+ */
 class Test
 {
+    /**
+     * @var array<mixed>
+     * @psalm-var list<mixed>
+     * @phpstan-var array<mixed>
+     */
+    public $foo = [];
+
     /**
      * Description
      */
@@ -59,10 +77,21 @@ class Test
      * @param int[] $foo
      * @param int[] $bar
      *
+     * @psalm-param list<int>
+     *
+     * @phpstan-param int[]
+     *
      * @return int[]
+     *
+     * @psalm-return list<int>
+     *
+     * @phpstan-return int[]
      *
      * @throws FooException
      * @throws BarException
+     *
+     * @psalm-internal
+     * @psalm-pure
      */
     public function d(iterable $foo, iterable $bar): iterable
     {

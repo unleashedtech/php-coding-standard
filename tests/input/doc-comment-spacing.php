@@ -7,8 +7,27 @@ namespace Test;
 use BarException;
 use FooException;
 
+/**
+ * @implements
+ * @extends
+ * @template T
+ * @template-covariant
+ * @phpstan-implements T
+ * @phpstan-extends
+ * @phpstan-template
+ * @phpstan-template-covariant
+ */
 class Test
 {
+    /**
+     * @var array<mixed>
+     *
+     * @phpstan-var array<mixed>
+     *
+     * @psalm-var list<mixed>
+     */
+    public $foo = [];
+
     /**
      *
      * Description
@@ -55,6 +74,12 @@ class Test
      * @PHPCR\Uuid
      * @param int[] $bar
      * @PHPCR\Field
+     * @psalm-internal
+     * @psalm-param list<int>
+     * @psalm-return list<int>
+     * @psalm-pure
+     * @phpstan-param int[]
+     * @phpstan-return int[]
      * @ODM\Column
      * @ORM\Column
      * @see  other

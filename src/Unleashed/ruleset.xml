@@ -176,11 +176,12 @@
             <property name="linesCountBetweenDescriptionAndAnnotations" value="1"/>
             <property name="linesCountBetweenAnnotationsGroups" value="1"/>
             <property name="annotationsGroups" type="array">
+                <!-- Important annotations -->
                 <element value="
                     @internal,
                     @deprecated,
                 "/>
-                <element value="@var"/>
+                <!-- References -->
                 <element value="
                     @link,
                     @see,
@@ -190,6 +191,27 @@
                 <element value="@test, @group, @dataProvider, @depends, @doesNotPerformAssertions, @runInSeparateProcess, @runTestsInSeparateProcesses"/>
                 <element value="@expectedDeprecation, @expectedException, @expectedExceptionCode, @expectedExceptionMessage, @expectedExceptionMessageRegExp"/>
                 <element value="@covers, @coversNothing, @coversDefaultClass"/>
+                <!-- Variable types -->
+                <element value="
+                    @var,
+                    @psalm-var,
+                    @phpstan-var,
+                "/>
+                <!-- Generics -->
+                <element value="
+                    @template,
+                    @template-covariant,
+                    @extends,
+                    @template-extends,
+                    @implements,
+                    @template-implements,
+                "/>
+                <element value="
+                    @phpstan-template,
+                    @phpstan-template-covariant,
+                    @phpstan-extends,
+                    @phpstan-implements,
+                "/>
                 <!-- Doctrine ORM and Extensions -->
                 <element value="
                     @ORM\,
@@ -199,14 +221,14 @@
                 "/>
                 <!-- Symfony validation -->
                 <element value="@Assert\"/>
+                <!-- Types -->
                 <element value="@param"/>
+                <element value="@psalm-param"/>
+                <element value="@phpstan-param"/>
                 <element value="@return"/>
+                <element value="@psalm-return"/>
+                <element value="@phpstan-return"/>
                 <element value="@throws"/>
-                <element value="
-                    @psalm-var,
-                    @psalm-param,
-                    @psalm-return,
-                "/>
                 <element value="
                     @property,
                     @property-read,
@@ -218,6 +240,9 @@
                 <element value="
                     @param-out,
                 "/>
+                <!-- Misc -->
+                <element value="@psalm-"/>
+                <element value="@phpstan-"/>
                 <element value="@phpcsSuppress"/>
             </property>
         </properties>

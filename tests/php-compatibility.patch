@@ -43,10 +43,15 @@ index 71be9a5..f9492c7 100644
          'array_key_exists'     => true,
          'array_slice'          => true,
 diff --git a/tests/expected_report.txt b/tests/expected_report.txt
-index 827fedc..fe8f917 100644
+index c07423b..9b0ebf0 100644
 --- a/tests/expected_report.txt
 +++ b/tests/expected_report.txt
-@@ -15,7 +15,7 @@ tests/input/doc-comment-spacing.php                   12      0
+@@ -11,11 +11,11 @@ tests/input/concatenation_spacing.php                 49      0
+ tests/input/constants-no-lsb.php                      2       0
+ tests/input/constants-var.php                         4       0
+ tests/input/ControlStructures.php                     17      2
+-tests/input/doc-comment-spacing.php                   16      0
++tests/input/doc-comment-spacing.php                   17      0
  tests/input/doctrine-migration.php                    18      6
  tests/input/duplicate-assignment-variable.php         1       0
  tests/input/EarlyReturn.php                           6       0
@@ -67,14 +72,27 @@ index 827fedc..fe8f917 100644
  tests/input/useless-semicolon.php                     2       0
  tests/input/UselessConditions.php                     23      0
  ----------------------------------------------------------------------
--A TOTAL OF 407 ERRORS AND 8 WARNINGS WERE FOUND IN 43 FILES
-+A TOTAL OF 411 ERRORS AND 8 WARNINGS WERE FOUND IN 43 FILES
+-A TOTAL OF 411 ERRORS AND 8 WARNINGS WERE FOUND IN 43 FILES
++A TOTAL OF 416 ERRORS AND 8 WARNINGS WERE FOUND IN 43 FILES
  ----------------------------------------------------------------------
--PHPCBF CAN FIX 330 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
-+PHPCBF CAN FIX 334 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
+-PHPCBF CAN FIX 334 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
++PHPCBF CAN FIX 339 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
  ----------------------------------------------------------------------
  
  
+diff --git a/tests/fixed/doc-comment-spacing.php b/tests/fixed/doc-comment-spacing.php
+index 7798686..bb40667 100644
+--- a/tests/fixed/doc-comment-spacing.php
++++ b/tests/fixed/doc-comment-spacing.php
+@@ -25,7 +25,7 @@ class Test
+      * @psalm-var list<mixed>
+      * @phpstan-var array<mixed>
+      */
+-    public $foo = [];
++    public array $foo = [];
+ 
+     /**
+      * Description
 diff --git a/tests/fixed/example-class.php b/tests/fixed/example-class.php
 index 0f98ce6..050d89c 100644
 --- a/tests/fixed/example-class.php
