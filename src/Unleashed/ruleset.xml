@@ -349,6 +349,8 @@
     <rule ref="SlevomatCodingStandard.Functions.StrictCall"/>
     <!-- Forbid unused variables passed to closures via `use` -->
     <rule ref="SlevomatCodingStandard.Functions.UnusedInheritedVariablePassedToClosure"/>
+    <!-- Check the formatting of "fn" arrow functions -->
+    <rule ref="SlevomatCodingStandard.Functions.ArrowFunctionDeclaration"/>
     <!-- Require use statements to be alphabetically sorted -->
     <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses">
         <properties>
