@@ -94,6 +94,7 @@
                 <element key="show_source" value="highlight_file"/>
                 <element key="sizeof" value="count"/>
                 <element key="strchr" value="strstr"/>
+                <element key="user_error" value="trigger_error"/>
                 <!-- Forbid 'empty()'; use more strict comparison instead -->
                 <element key="empty" value="null"/>
                 <!-- Forbid remaining debug functions in the code -->
