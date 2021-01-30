@@ -3,8 +3,6 @@ name: "Test"
 on:
     pull_request:
     push:
-        branches:
-            - "master"
     schedule:
         - cron: "0 8 * * *"
 
@@ -56,7 +54,7 @@ jobs:
         runs-on: ubuntu-18.04
         strategy:
             matrix:
-                php-version: ['7.1', '7.2', '7.3', '7.4']
+                php-version: ['7.1', '7.2', '7.3', '7.4', '8.0']
 
         steps:
             - uses: actions/checkout@v2
@@ -78,7 +76,7 @@ jobs:
         runs-on: ubuntu-18.04
         strategy:
             matrix:
-                php-version: ['7.1', '7.2', '7.3', '7.4']
+                php-version: ['7.1', '7.2', '7.3', '7.4', '8.0']
 
         steps:
             - uses: actions/checkout@v2
@@ -99,7 +97,7 @@ jobs:
         runs-on: ubuntu-18.04
         strategy:
             matrix:
-                php-version: ['7.1', '7.2', '7.3', '7.4']
+                php-version: ['7.1', '7.2', '7.3', '7.4', '8.0']
 
         steps:
             - uses: actions/checkout@v2
