@@ -106,6 +106,13 @@
             </property>
         </properties>
     </rule>
+    <rule ref="Unleashed.PHP.ForbiddenClasses">
+        <properties>
+            <property name="forbiddenClasses" type="array">
+                <element value="\DateTime"/>
+            </property>
+        </properties>
+    </rule>
     <!-- Forbid useless inline string concatenation -->
     <rule ref="Generic.Strings.UnnecessaryStringConcat">
         <!-- But multiline is useful for readability -->
