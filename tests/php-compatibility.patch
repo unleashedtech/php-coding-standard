@@ -68,7 +68,7 @@ index 80a42a6..dd2fcb7 100644
      /**
       * Returns an array of tokens this test wants to listen for.
 diff --git a/tests/expected_report.txt b/tests/expected_report.txt
-index cc0cd5a..c3ebeb0 100644
+index 94f1b60..fa0a0f9 100644
 --- a/tests/expected_report.txt
 +++ b/tests/expected_report.txt
 @@ -11,11 +11,11 @@ tests/input/concatenation_spacing.php                 49      0
@@ -97,8 +97,8 @@ index cc0cd5a..c3ebeb0 100644
  tests/input/useless-semicolon.php                     2       0
  tests/input/UselessConditions.php                     23      0
  ----------------------------------------------------------------------
--A TOTAL OF 418 ERRORS AND 8 WARNINGS WERE FOUND IN 44 FILES
-+A TOTAL OF 423 ERRORS AND 8 WARNINGS WERE FOUND IN 44 FILES
+-A TOTAL OF 417 ERRORS AND 8 WARNINGS WERE FOUND IN 44 FILES
++A TOTAL OF 422 ERRORS AND 8 WARNINGS WERE FOUND IN 44 FILES
  ----------------------------------------------------------------------
 -PHPCBF CAN FIX 334 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
 +PHPCBF CAN FIX 339 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
@@ -106,7 +106,7 @@ index cc0cd5a..c3ebeb0 100644
  
  
 diff --git a/tests/fixed/doc-comment-spacing.php b/tests/fixed/doc-comment-spacing.php
-index 7798686..bb40667 100644
+index 2f53db0..728e7f0 100644
 --- a/tests/fixed/doc-comment-spacing.php
 +++ b/tests/fixed/doc-comment-spacing.php
 @@ -25,7 +25,7 @@ class Test

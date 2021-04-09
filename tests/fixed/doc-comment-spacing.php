@@ -9,12 +9,12 @@ use FooException;
 
 /**
  * @template T
- * @template-covariant
+ * @template-covariant T
  * @extends
  * @implements
  *
- * @phpstan-template
- * @phpstan-template-covariant
+ * @phpstan-template T
+ * @phpstan-template-covariant T
  * @phpstan-extends
  * @phpstan-implements T
  */

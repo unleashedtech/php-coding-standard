@@ -11,11 +11,11 @@ use FooException;
  * @implements
  * @extends
  * @template T
- * @template-covariant
+ * @template-covariant T
  * @phpstan-implements T
  * @phpstan-extends
- * @phpstan-template
- * @phpstan-template-covariant
+ * @phpstan-template T
+ * @phpstan-template-covariant T
  */
 class Test
 {

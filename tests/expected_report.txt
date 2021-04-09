@@ -25,7 +25,7 @@ tests/input/inline_type_hint_assertions.php           7       0
 tests/input/LowCaseTypes.php                          3       0
 tests/input/merge-conflict.php                        6       0
 tests/input/namespaces-spacing.php                    12      0
-tests/input/NamingCamelCase.php                       8       0
+tests/input/NamingCamelCase.php                       7       0
 tests/input/negation-operator.php                     2       0
 tests/input/new_with_parentheses.php                  30      0
 tests/input/not_spacing.php                           8       0
@@ -48,7 +48,7 @@ tests/input/use-ordering.php                          9       0
 tests/input/useless-semicolon.php                     2       0
 tests/input/UselessConditions.php                     23      0
 ----------------------------------------------------------------------
-A TOTAL OF 418 ERRORS AND 8 WARNINGS WERE FOUND IN 44 FILES
+A TOTAL OF 417 ERRORS AND 8 WARNINGS WERE FOUND IN 44 FILES
 ----------------------------------------------------------------------
 PHPCBF CAN FIX 334 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
 ----------------------------------------------------------------------
