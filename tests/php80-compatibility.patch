@@ -99,7 +99,7 @@ index 80a42a6..dd2fcb7 100644
      /**
       * Returns an array of tokens this test wants to listen for.
 diff --git a/tests/expected_report.txt b/tests/expected_report.txt
-index 94f1b60..4c83934 100644
+index 94f1b60..340e8e5 100644
 --- a/tests/expected_report.txt
 +++ b/tests/expected_report.txt
 @@ -10,12 +10,12 @@ tests/input/class-references.php                      10      0
@@ -115,7 +115,7 @@ index 94f1b60..4c83934 100644
 -tests/input/EarlyReturn.php                           6       0
 -tests/input/example-class.php                         38      0
 +tests/input/EarlyReturn.php                           7       0
-+tests/input/example-class.php                         47      0
++tests/input/example-class.php                         43      0
  tests/input/forbidden-comments.php                    14      0
  tests/input/forbidden-functions.php                   13      0
  tests/input/ForbiddenClasses.php                      7       0
@@ -151,10 +151,10 @@ index 94f1b60..4c83934 100644
 +tests/input/UselessConditions.php                     24      0
  ----------------------------------------------------------------------
 -A TOTAL OF 417 ERRORS AND 8 WARNINGS WERE FOUND IN 44 FILES
-+A TOTAL OF 444 ERRORS AND 8 WARNINGS WERE FOUND IN 44 FILES
++A TOTAL OF 440 ERRORS AND 8 WARNINGS WERE FOUND IN 44 FILES
  ----------------------------------------------------------------------
 -PHPCBF CAN FIX 334 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
-+PHPCBF CAN FIX 361 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
++PHPCBF CAN FIX 357 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
  ----------------------------------------------------------------------
  
  
@@ -233,42 +233,35 @@ index 2f53db0..728e7f0 100644
      /**
       * Description
 diff --git a/tests/fixed/example-class.php b/tests/fixed/example-class.php
-index 0f98ce6..6388c7c 100644
+index 0f98ce6..cc1f058 100644
 --- a/tests/fixed/example-class.php
 +++ b/tests/fixed/example-class.php
-@@ -4,7 +4,6 @@ declare(strict_types=1);
- 
- namespace Example;
- 
--use Doctrine\Sniffs\Spacing\ControlStructureSniff;
- use Fancy\TestCase;
- 
- use function strlen as stringLength;
-@@ -18,30 +17,14 @@ class Example implements \IteratorAggregate
+@@ -18,19 +18,16 @@ class Example implements \IteratorAggregate
  {
      private const VERSION = \PHP_VERSION - (PHP_MINOR_VERSION * 100) - PHP_PATCH_VERSION;
  
 -    /** @var int|null */
 -    private $foo;
--
--    /** @var string[] */
++    private int|null $foo = null;
+ 
+     /** @var string[] */
 -    private $bar;
--
++    private array $bar;
+ 
 -    /** @var bool */
 -    private $baz;
--
++    private bool $baz;
+ 
 -    /** @var ControlStructureSniff|int|string|null */
 -    private $baxBax;
--
--    public function __construct(?int $foo = null, array $bar = [], bool $baz = false, $baxBax = 'unused')
-+    public function __construct(private int|null $foo = null, private array $bar = [], private bool $baz = false, private $baxBax = 'unused')
-     {
--        $this->foo    = $foo;
--        $this->bar    = $bar;
--        $this->baz    = $baz;
--        $this->baxBax = $baxBax;
-     }
++    private ControlStructureSniff|int|string|null $baxBax = null;
  
+-    public function __construct(?int $foo = null, array $bar = [], bool $baz = false, $baxBax = 'unused')
++    public function __construct(int|null $foo = null, array $bar = [], bool $baz = false, $baxBax = 'unused')
+     {
+         $this->foo    = $foo;
+         $this->bar    = $bar;
+@@ -41,7 +38,7 @@ class Example implements \IteratorAggregate
      /**
       * Description
       */
