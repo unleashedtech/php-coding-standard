@@ -293,6 +293,11 @@
             </property>
         </properties>
     </rule>
+    <rule ref="Unleashed.Commenting.InheritDocFormat">
+        <properties>
+            <property name="style" value="{@inheritDoc}"/>
+        </properties>
+    </rule>
     <!-- Require a description for all deprecations -->
     <rule ref="SlevomatCodingStandard.Commenting.DeprecatedAnnotationDeclaration"/>
     <!-- Report invalid format of inline phpDocs with @var -->

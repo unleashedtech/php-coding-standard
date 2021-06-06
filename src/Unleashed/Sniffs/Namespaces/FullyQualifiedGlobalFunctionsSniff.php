@@ -64,7 +64,7 @@ final class FullyQualifiedGlobalFunctionsSniff implements Sniff
      * Returns an array of tokens this test wants to listen for.
      * We're looking for all functions, so use T_STRING.
      *
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function register()
     {
@@ -78,7 +78,7 @@ final class FullyQualifiedGlobalFunctionsSniff implements Sniff
      *
      * @link https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/Generic/Sniffs/PHP/ForbiddenFunctionsSniff.php#L118
      *
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function process(File $phpcsFile, $stackPtr)
     {
