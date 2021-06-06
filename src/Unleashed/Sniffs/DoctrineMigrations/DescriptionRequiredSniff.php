@@ -19,7 +19,7 @@ final class DescriptionRequiredSniff implements Sniff
     /**
      * Returns an array of tokens this test wants to listen for.
      *
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function register()
     {
@@ -27,7 +27,7 @@ final class DescriptionRequiredSniff implements Sniff
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function process(File $phpcsFile, $stackPtr)
     {

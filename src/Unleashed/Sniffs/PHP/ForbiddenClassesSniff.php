@@ -35,7 +35,7 @@ final class ForbiddenClassesSniff implements Sniff
     /**
      * Returns an array of tokens this test wants to listen for.
      *
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function register(): array
     {
@@ -43,7 +43,7 @@ final class ForbiddenClassesSniff implements Sniff
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function process(File $phpcsFile, $stackPtr)
     {
