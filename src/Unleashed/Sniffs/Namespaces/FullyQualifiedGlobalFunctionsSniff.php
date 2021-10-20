@@ -7,6 +7,7 @@ namespace Unleashed\Sniffs\Namespaces;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use SlevomatCodingStandard\Sniffs\Classes\ModernClassNameReferenceSniff;
+use Unleashed\Helpers\NamespaceHelper;
 use Unleashed\Helpers\UseStatements;
 
 final class FullyQualifiedGlobalFunctionsSniff implements Sniff
@@ -83,7 +84,8 @@ final class FullyQualifiedGlobalFunctionsSniff implements Sniff
     public function process(File $phpcsFile, $stackPtr)
     {
         // Abort if we're not in namespaced code
-        if ($phpcsFile->findPrevious([T_NAMESPACE], $stackPtr - 1) === false) {
+        $firstNamespacePointer = NamespaceHelper::getFirstNamespacePointer($phpcsFile);
+        if ($firstNamespacePointer === null || $stackPtr < $firstNamespacePointer) {
             return;
         }
 
