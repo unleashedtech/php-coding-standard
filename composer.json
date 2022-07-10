@@ -46,5 +46,10 @@
             "make test"
         ],
         "phpcs": "./vendor/bin/phpcs"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     }
 }
