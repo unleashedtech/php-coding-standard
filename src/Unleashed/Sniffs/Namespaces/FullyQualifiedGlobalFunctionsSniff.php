@@ -12,11 +12,10 @@ use Unleashed\Helpers\UseStatements;
 
 final class FullyQualifiedGlobalFunctionsSniff implements Sniff
 {
-    /** @var bool */
-    public $onlyOptimizedFunctions = false;
+    public bool $onlyOptimizedFunctions = false;
 
     /** @var array<string, bool> */
-    private $optimizedFunctions = [
+    private array $optimizedFunctions = [
         // @see https://github.com/php/php-src/blob/PHP-7.4/Zend/zend_compile.c "zend_try_compile_special_func"
         'array_key_exists'     => true,
         'array_slice'          => true,

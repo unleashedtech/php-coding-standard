@@ -19,7 +19,7 @@ final class ForbiddenClassesSniff implements Sniff
      *
      * @var string[]
      */
-    public $forbiddenClasses = [
+    public array $forbiddenClasses = [
         // phpcs:disable Unleashed.PHP.ForbiddenClasses.Forbidden
         \DateTime::class,
         // phpcs:enable
@@ -27,10 +27,8 @@ final class ForbiddenClassesSniff implements Sniff
 
     /**
      * If true, an error will be thrown; otherwise a warning
-     *
-     * @var bool
      */
-    public $error = true;
+    public bool $error = true;
 
     /**
      * Returns an array of tokens this test wants to listen for.

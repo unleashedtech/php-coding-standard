@@ -14,7 +14,7 @@ use PHP_CodeSniffer\Files\File;
 final class SniffLocalCache
 {
     /** @var array<int, array<string, mixed>> */
-    private static $cache = [];
+    private static array $cache = [];
 
     /**
      * @return mixed
