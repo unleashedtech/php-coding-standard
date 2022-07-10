@@ -18,14 +18,12 @@ class Example implements \IteratorAggregate
 {
     private const VERSION = \PHP_VERSION - (PHP_MINOR_VERSION * 100) - PHP_PATCH_VERSION;
 
-    /** @var int|null */
-    private $foo;
+    private ?int $foo = null;
 
     /** @var string[] */
-    private $bar;
+    private array $bar;
 
-    /** @var bool */
-    private $baz;
+    private bool $baz;
 
     /** @var ControlStructureSniff|int|string|null */
     private $baxBax;

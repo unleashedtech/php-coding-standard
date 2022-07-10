@@ -10,7 +10,7 @@ use Traversable;
 class TraversableTypeHints
 {
     /** @var Traversable */
-    private $parameter;
+    private Traversable $parameter;
 
     /**
      * @param Iterator $iterator
