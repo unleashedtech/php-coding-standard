@@ -13,10 +13,8 @@ final class InheritDocFormatSniff implements Sniff
 
     /**
      * The required style
-     *
-     * @var string
      */
-    public $style = '{@inheritDoc}';
+    public string $style = '{@inheritDoc}';
 
     /**
      * @return array<int, (int|string)>

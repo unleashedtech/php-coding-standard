@@ -13,7 +13,7 @@ final class ForbiddenSingleLineCommentsSniff implements Sniff
     public const CODE_COMMENT_FORBIDDEN = 'CommentForbidden';
 
     /** @var string[] */
-    public $forbiddenCommentPatterns = [];
+    public array $forbiddenCommentPatterns = [];
 
     /**
      * @return array<int, (int|string)>

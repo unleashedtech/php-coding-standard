@@ -80,7 +80,7 @@ final class DescriptionRequiredSniff implements Sniff
         );
     }
 
-    private static function findMethodInClass(File $phpcsFile, string $methodName, int $startPtr, int $endPtr): ?int
+    private static function findMethodInClass(File $phpcsFile, string $methodName, int $startPtr, int $endPtr): int|null
     {
         do {
             $nextFunctionPointer = TokenHelper::findNext($phpcsFile, T_FUNCTION, $startPtr + 1);
@@ -110,7 +110,7 @@ final class DescriptionRequiredSniff implements Sniff
         return null;
     }
 
-    private static function findApproximateClassEndPointer(File $phpcsFile, int $ptrWithinClass): ?int
+    private static function findApproximateClassEndPointer(File $phpcsFile, int $ptrWithinClass): int|null
     {
         $classPtrs = \array_keys(ClassHelper::getAllNames($phpcsFile));
 
