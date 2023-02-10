@@ -10,13 +10,14 @@ tests/input/class-references.php                      10      0
 tests/input/concatenation_spacing.php                 54      0
 tests/input/constants-no-lsb.php                      2       0
 tests/input/constants-var.php                         3       0
-tests/input/ControlStructures.php                     18      2
+tests/input/ControlStructures.php                     17      2
 tests/input/doc-comment-spacing.php                   17      0
 tests/input/doctrine-migration.php                    18      6
 tests/input/duplicate-assignment-variable.php         1       0
 tests/input/EarlyReturn.php                           7       0
 tests/input/example-class.php                         46      0
 tests/input/ExampleBackedEnum.php                     4       0
+tests/input/Exceptions.php                            1       0
 tests/input/forbidden-comments.php                    14      0
 tests/input/forbidden-functions.php                   13      0
 tests/input/ForbiddenClasses.php                      7       0
@@ -52,7 +53,7 @@ tests/input/use-ordering.php                          9       0
 tests/input/useless-semicolon.php                     2       0
 tests/input/UselessConditions.php                     24      0
 ----------------------------------------------------------------------
-A TOTAL OF 483 ERRORS AND 9 WARNINGS WERE FOUND IN 48 FILES
+A TOTAL OF 483 ERRORS AND 9 WARNINGS WERE FOUND IN 49 FILES
 ----------------------------------------------------------------------
 PHPCBF CAN FIX 392 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
 ----------------------------------------------------------------------
