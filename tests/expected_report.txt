@@ -16,6 +16,7 @@ tests/input/doctrine-migration.php                    18      6
 tests/input/duplicate-assignment-variable.php         1       0
 tests/input/EarlyReturn.php                           7       0
 tests/input/example-class.php                         46      0
+tests/input/ExampleBackedEnum.php                     4       0
 tests/input/forbidden-comments.php                    14      0
 tests/input/forbidden-functions.php                   13      0
 tests/input/ForbiddenClasses.php                      7       0
@@ -50,9 +51,9 @@ tests/input/use-ordering.php                          9       0
 tests/input/useless-semicolon.php                     2       0
 tests/input/UselessConditions.php                     24      0
 ----------------------------------------------------------------------
-A TOTAL OF 478 ERRORS AND 9 WARNINGS WERE FOUND IN 46 FILES
+A TOTAL OF 482 ERRORS AND 9 WARNINGS WERE FOUND IN 47 FILES
 ----------------------------------------------------------------------
-PHPCBF CAN FIX 387 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX 391 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
 ----------------------------------------------------------------------
 
 
