@@ -224,12 +224,16 @@
                 <!-- Symfony validation -->
                 <element value="@Assert\"/>
                 <!-- Types -->
-                <element value="@param"/>
-                <element value="@psalm-param"/>
-                <element value="@phpstan-param"/>
-                <element value="@return"/>
-                <element value="@psalm-return"/>
-                <element value="@phpstan-return"/>
+                <element value="
+                    @param,
+                    @psalm-param,
+                    @phpstan-param,
+                "/>
+                <element value="
+                    @return,
+                    @psalm-return,
+                    @phpstan-return,
+                "/>
                 <element value="@throws"/>
                 <element value="
                     @property,
