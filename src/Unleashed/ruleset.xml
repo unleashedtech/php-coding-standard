@@ -523,6 +523,12 @@
     <rule ref="SlevomatCodingStandard.Variables.DuplicateAssignmentToVariable"/>
     <!-- Forbid useless variables -->
     <rule ref="SlevomatCodingStandard.Variables.UselessVariable"/>
+    <!-- Checks duplicate spaces anywhere because there aren't sniffs for every part of code to check formatting -->
+    <rule ref="SlevomatCodingStandard.Whitespaces.DuplicateSpaces">
+        <properties>
+            <property name="ignoreSpacesInAnnotation" value="true"/>
+        </properties>
+    </rule>
     <!-- Forbid spaces around square brackets -->
     <rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
     <!-- Force array declaration structure -->

@@ -29,9 +29,9 @@ class Example implements \IteratorAggregate
 
     public function __construct(int|null $foo = null, array $bar = [], bool $baz = false, $baxBax = 'unused')
     {
-        $this->foo    = $foo;
-        $this->bar    = $bar;
-        $this->baz    = $baz;
+        $this->foo = $foo;
+        $this->bar = $bar;
+        $this->baz = $baz;
         $this->baxBax = $baxBax;
     }
 

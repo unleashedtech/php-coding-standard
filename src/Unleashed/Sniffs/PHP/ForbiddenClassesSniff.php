@@ -53,7 +53,7 @@ final class ForbiddenClassesSniff implements Sniff
 
         foreach ($referencedNames as $referencedName) {
             $pointer = $referencedName->getStartPointer();
-            $name    = $referencedName->getNameAsReferencedInFile();
+            $name = $referencedName->getNameAsReferencedInFile();
 
             $fullyQualifiedName = NamespaceHelper::resolveClassName($phpcsFile, $name, $pointer);
 

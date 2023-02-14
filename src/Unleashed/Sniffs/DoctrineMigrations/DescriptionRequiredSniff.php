@@ -14,7 +14,7 @@ use SlevomatCodingStandard\Helpers\TokenHelper;
 final class DescriptionRequiredSniff implements Sniff
 {
     public const CODE_MISSING_DESCRIPTION = 'MissingDescription';
-    public const CODE_EMPTY_DESCRIPTION   = 'EmptyDescription';
+    public const CODE_EMPTY_DESCRIPTION = 'EmptyDescription';
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -46,7 +46,7 @@ final class DescriptionRequiredSniff implements Sniff
 
         // Does a `getDescription()` method exist?
         $classEndPtr = self::findApproximateClassEndPointer($phpcsFile, $parentClassPtr);
-        $methodPtr   = self::findMethodInClass($phpcsFile, 'getDescription', $parentClassPtr, $classEndPtr);
+        $methodPtr = self::findMethodInClass($phpcsFile, 'getDescription', $parentClassPtr, $classEndPtr);
         if ($methodPtr === null) {
             // Nope - method is missing
             $fix = $phpcsFile->addFixableError(
@@ -116,7 +116,7 @@ final class DescriptionRequiredSniff implements Sniff
 
         while (\current($classPtrs) !== false) {
             $start = \current($classPtrs);
-            $end   = \next($classPtrs);
+            $end = \next($classPtrs);
 
             if ($start <= $ptrWithinClass && $end >= $ptrWithinClass) {
                 return $end;

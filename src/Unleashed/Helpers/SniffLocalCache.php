@@ -18,7 +18,7 @@ final class SniffLocalCache
 
     public static function getAndSetIfNotCached(File $phpcsFile, string $key, \Closure $lazyValue): mixed
     {
-        $fixerLoops  = $phpcsFile->fixer?->loops ?? 0;
+        $fixerLoops = $phpcsFile->fixer?->loops ?? 0;
         $internalKey = \sprintf('%s-%s', $phpcsFile->getFilename(), $key);
 
         self::setIfNotCached($fixerLoops, $internalKey, $lazyValue);
