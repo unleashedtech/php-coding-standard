@@ -14,3 +14,6 @@ test-fix: vendor
 vendor: composer.json
 	composer update
 	touch -c vendor
+
+update-tests-to-latest-standards: vendor
+	./bin/update-tests-to-latest-standards
