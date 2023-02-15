@@ -58,6 +58,8 @@
     </rule>
     <!-- Force whitespace after `!` -->
     <rule ref="Generic.Formatting.SpaceAfterNot"/>
+    <!-- Prevent passing variables by reference when calling a function -->
+    <rule ref="Generic.Functions.CallTimePassByReference"/>
     <!-- Forbid PHP 4 constructors -->
     <rule ref="Generic.NamingConventions.ConstructorName"/>
     <!-- Forbid any content before opening tag -->
@@ -70,6 +72,7 @@
             <property name="forbiddenFunctions" type="array">
                 <element key="chop" value="rtrim"/>
                 <element key="close" value="closedir"/>
+                <element key="compact" value="null"/>
                 <element key="delete" value="unset"/>
                 <element key="doubleval" value="floatval"/>
                 <element key="extract" value="null"/>
@@ -116,6 +119,8 @@
     </rule>
     <!-- Forbid backtick operator -->
     <rule ref="Generic.PHP.BacktickOperator"/>
+    <!-- Require that true, false, and null are lowercase -->
+    <rule ref="Generic.PHP.LowerCaseConstant"/>
     <!-- Force PHP 7 param and return types to be lowercased -->
     <rule ref="Generic.PHP.LowerCaseType"/>
     <!-- Forbid `php_sapi_name()` function -->
@@ -156,8 +161,6 @@
     </rule>
     <!-- Forbid LSB for constants (static::FOO) -->
     <rule ref="SlevomatCodingStandard.Classes.DisallowLateStaticBindingForConstants"/>
-    <!-- Require that true, false, and null are lowercase -->
-    <rule ref="Generic.PHP.LowerCaseConstant"/>
     <!-- Forbid empty lines around type declarations -->
     <rule ref="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces">
         <properties>
@@ -538,11 +541,12 @@
             </property>
         </properties>
     </rule>
+    <!-- Define unions style -->
     <rule ref="SlevomatCodingStandard.TypeHints.UnionTypeHintFormat">
         <properties>
-            <property name="withSpaces" value="no"/>
-            <property name="shortNullable" value="no"/>
-            <property name="nullPosition" value="last"/>
+            <property name="withSpaces" value="no" />
+            <property name="shortNullable" value="no" />
+            <property name="nullPosition" value="last" />
         </properties>
     </rule>
     <!-- Forbid useless @var for constants -->
@@ -700,15 +704,12 @@
     <!-- Forbid superfluous whitespaces -->
     <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
         <properties>
-            <!-- turned on by PSR2 -> turning back off -->
+            <!-- turned on by PSR-12 -> turning back off -->
             <property name="ignoreBlankLines" value="false"/>
         </properties>
     </rule>
     <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.EmptyLines">
-        <!-- turned off by PSR2 -> turning back on -->
+        <!-- turned off by PSR-12 -> turning back on -->
         <severity>5</severity>
     </rule>
-
-    <!-- Prevent passing variables by reference when calling a function -->
-    <rule ref="Generic.Functions.CallTimePassByReference"/>
 </ruleset>

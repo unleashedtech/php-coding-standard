@@ -20,7 +20,7 @@ tests/input/example-class.php                         46      0
 tests/input/ExampleBackedEnum.php                     4       0
 tests/input/Exceptions.php                            1       0
 tests/input/forbidden-comments.php                    14      0
-tests/input/forbidden-functions.php                   13      0
+tests/input/forbidden-functions.php                   14      0
 tests/input/ForbiddenClasses.php                      7       0
 tests/input/fully-qualified-and-fallbacks.php         2       0
 tests/input/fully-qualified-without-namespace.php     4       0
@@ -55,7 +55,7 @@ tests/input/use-ordering.php                          9       0
 tests/input/useless-semicolon.php                     2       0
 tests/input/UselessConditions.php                     24      0
 ----------------------------------------------------------------------
-A TOTAL OF 517 ERRORS AND 9 WARNINGS WERE FOUND IN 51 FILES
+A TOTAL OF 518 ERRORS AND 9 WARNINGS WERE FOUND IN 51 FILES
 ----------------------------------------------------------------------
 PHPCBF CAN FIX 415 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
 ----------------------------------------------------------------------
