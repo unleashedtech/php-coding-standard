@@ -128,6 +128,14 @@
     </rule>
     <!-- Forbid conditional if() statements -->
     <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
+    <!-- Disallow multiple attributes inside one #[] -->
+    <rule ref="SlevomatCodingStandard.Attributes.DisallowAttributesJoining"/>
+    <!-- Require only one attribute per line -->
+    <rule ref="SlevomatCodingStandard.Attributes.DisallowMultipleAttributesPerLine"/>
+    <!-- Attributes should be adjoined to the PHP element they belong to -->
+    <rule ref="SlevomatCodingStandard.Attributes.AttributeAndTargetSpacing"/>
+    <!-- Require PHPDoc always before attributes -->
+    <rule ref="SlevomatCodingStandard.Attributes.RequireAttributeAfterDocComment"/>
     <!-- Require that single line arrays have the correct spacing: no space around brackets and one space after comma -->
     <rule ref="SlevomatCodingStandard.Arrays.SingleLineArrayWhitespace"/>
     <!-- Require comma after last element in multi-line array -->
