@@ -21,13 +21,13 @@ tests/input/Exceptions.php                            1       0
 tests/input/forbidden-comments.php                    14      0
 tests/input/forbidden-functions.php                   13      0
 tests/input/ForbiddenClasses.php                      7       0
-tests/input/fully-qualified-and-fallbacks.php         1       0
-tests/input/fully-qualified-without-namespace.php     3       0
+tests/input/fully-qualified-and-fallbacks.php         2       0
+tests/input/fully-qualified-without-namespace.php     4       0
 tests/input/inheritdoc.php                            12      1
 tests/input/inline_type_hint_assertions.php           7       0
 tests/input/LowCaseTypes.php                          3       0
 tests/input/merge-conflict.php                        6       0
-tests/input/namespaces-spacing.php                    12      0
+tests/input/namespaces-spacing.php                    13      0
 tests/input/NamingCamelCase.php                       10      0
 tests/input/negation-operator.php                     2       0
 tests/input/new_with_parentheses.php                  27      0
@@ -45,6 +45,7 @@ tests/input/static-closures.php                       1       0
 tests/input/strict-functions.php                      4       0
 tests/input/test-case.php                             7       0
 tests/input/trailing_comma_on_array.php               1       0
+tests/input/TrailingCommaOnFunctions.php              6       0
 tests/input/traits-uses.php                           12      0
 tests/input/type-hints.php                            6       0
 tests/input/UnusedVariables.php                       2       0
@@ -53,9 +54,9 @@ tests/input/use-ordering.php                          9       0
 tests/input/useless-semicolon.php                     2       0
 tests/input/UselessConditions.php                     24      0
 ----------------------------------------------------------------------
-A TOTAL OF 493 ERRORS AND 9 WARNINGS WERE FOUND IN 49 FILES
+A TOTAL OF 502 ERRORS AND 9 WARNINGS WERE FOUND IN 50 FILES
 ----------------------------------------------------------------------
-PHPCBF CAN FIX 402 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX 411 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
 ----------------------------------------------------------------------
 
 

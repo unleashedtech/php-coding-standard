@@ -365,16 +365,38 @@
     <rule ref="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly"/>
     <!-- Require non-capturing catch when the variable with exception is not used -->
     <rule ref="SlevomatCodingStandard.Exceptions.RequireNonCapturingCatch"/>
+    <!-- Check the formatting of "fn" arrow functions -->
+    <rule ref="SlevomatCodingStandard.Functions.ArrowFunctionDeclaration"/>
+    <!-- Disallow trailing commas in single line function calls -->
+    <rule ref="SlevomatCodingStandard.Functions.DisallowTrailingCommaInCall">
+        <properties>
+            <property name="onlySingleLine" value="true" />
+        </properties>
+    </rule>
+    <!-- Disallow trailing commas in single line closure use -->
+    <rule ref="SlevomatCodingStandard.Functions.DisallowTrailingCommaInClosureUse">
+        <properties>
+            <property name="onlySingleLine" value="true" />
+        </properties>
+    </rule>
+    <!-- Disallow trailing commas in single line function declarations -->
+    <rule ref="SlevomatCodingStandard.Functions.DisallowTrailingCommaInDeclaration">
+        <properties>
+            <property name="onlySingleLine" value="true" />
+        </properties>
+    </rule>
+    <!-- Require trailing commas in multiline function calls -->
+    <rule ref="SlevomatCodingStandard.Functions.RequireTrailingCommaInCall"/>
+    <!-- Require trailing commas in multiline closure use -->
+    <rule ref="SlevomatCodingStandard.Functions.RequireTrailingCommaInClosureUse"/>
+    <!-- Require trailing commas in multiline function declarations -->
+    <rule ref="SlevomatCodingStandard.Functions.RequireTrailingCommaInDeclaration"/>
     <!-- Require closures not referencing $this be static -->
     <rule ref="SlevomatCodingStandard.Functions.StaticClosure"/>
     <!-- Require calls to PHP functions that have a `$strict` parameter to always set that to `true` -->
     <rule ref="SlevomatCodingStandard.Functions.StrictCall"/>
-    <!-- Require trailing commas in multi-line declarations -->
-    <rule ref="SlevomatCodingStandard.Functions.RequireTrailingCommaInDeclaration"/>
     <!-- Forbid unused variables passed to closures via `use` -->
     <rule ref="SlevomatCodingStandard.Functions.UnusedInheritedVariablePassedToClosure"/>
-    <!-- Check the formatting of "fn" arrow functions -->
-    <rule ref="SlevomatCodingStandard.Functions.ArrowFunctionDeclaration"/>
     <!-- Require use statements to be alphabetically sorted -->
     <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses">
         <properties>
