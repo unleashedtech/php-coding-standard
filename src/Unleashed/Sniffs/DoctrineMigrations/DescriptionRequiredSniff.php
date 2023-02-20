@@ -52,14 +52,14 @@ final class DescriptionRequiredSniff implements Sniff
             $fix = $phpcsFile->addFixableError(
                 'Doctrine Migrations must have a getDescription() method.',
                 TokenHelper::findPrevious($phpcsFile, T_CLASS, $stackPtr),
-                self::CODE_MISSING_DESCRIPTION
+                self::CODE_MISSING_DESCRIPTION,
             );
 
             if ($fix) {
                 $phpcsFile->fixer->beginChangeset();
                 $phpcsFile->fixer->addContent(
                     TokenHelper::findNext($phpcsFile, T_OPEN_CURLY_BRACKET, $stackPtr),
-                    "\n    public function getDescription(): string\n    {\n        return '';\n    }"
+                    "\n    public function getDescription(): string\n    {\n        return '';\n    }",
                 );
                 $phpcsFile->fixer->endChangeset();
             }
@@ -76,7 +76,7 @@ final class DescriptionRequiredSniff implements Sniff
         $phpcsFile->addError(
             'Doctrine Migrationss must return useful information from getDescription(); empty strings not allowed',
             $returnValuePtr,
-            self::CODE_EMPTY_DESCRIPTION
+            self::CODE_EMPTY_DESCRIPTION,
         );
     }
 

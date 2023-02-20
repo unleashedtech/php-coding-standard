@@ -54,7 +54,7 @@ final class InheritDocFormatSniff implements Sniff
             $fix = $phpcsFile->addFixableError(
                 \sprintf('Incorrect formatting of "%s"', $this->style),
                 $i,
-                self::CODE_INVALID_INHERITDOC_STYLE
+                self::CODE_INVALID_INHERITDOC_STYLE,
             );
 
             if (! $fix) {

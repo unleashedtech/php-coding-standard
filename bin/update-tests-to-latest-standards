@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set +e
+
+cp -R tests/input/ tests/updated/
+vendor/bin/phpcbf tests/updated
+
+rm -rf tests/fixed
+mv tests/updated tests/fixed
+
+# shellcheck disable=SC2046
+vendor/bin/phpcs $(find tests/input/* | sort) --report=summary --report-file=updated-report.txt
+mv updated-report.txt tests/expected_report.txt

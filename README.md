@@ -13,7 +13,6 @@ This coding standard is based on [PSR-1](https://github.com/php-fig/fig-standard
 with some noticeable exceptions/differences/extensions based on best-practices adopted by Symfony, Doctrine, and the wider community:
 
 - Keep the nesting of control structures per method as small as possible
-- Align equals (``=``) signs in assignments
 - Add spaces around a concatenation operator ``$foo = 'Hello ' . 'World!';``
 - Add spaces between assignment, control and return statements
 - Add spaces after the colon in return type declaration ``function (): void {}``
@@ -26,6 +25,7 @@ with some noticeable exceptions/differences/extensions based on best-practices a
 - Don't use ``@author``, ``@since`` and similar annotations that duplicate Git information
 - Use parentheses when creating new instances that do not require arguments ``$foo = new Foo()``
 - Use Null Coalesce Operator ``$foo = $bar ?? $baz``
+- Use Null Safe Object Operator ``$foo = $object?->property``
 - Prefer early exit over nesting conditions or using else
 - Always use fully-qualified global functions (without needing `use function` statements)
 - Forbids the use of `\DateTime`

@@ -76,15 +76,11 @@ class Test
      *
      * @param int[] $foo
      * @param int[] $bar
-     *
      * @psalm-param list<int>
-     *
      * @phpstan-param int[]
      *
      * @return int[]
-     *
      * @psalm-return list<int>
-     *
      * @phpstan-return int[]
      *
      * @throws FooException
