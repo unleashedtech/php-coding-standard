@@ -48,7 +48,7 @@ final class ForbiddenSingleLineCommentsSniff implements Sniff
             $fix = $phpcsFile->addFixableError(
                 \sprintf('Code contains forbidden comment "%s".', \trim($content)),
                 $stackPtr,
-                self::CODE_COMMENT_FORBIDDEN
+                self::CODE_COMMENT_FORBIDDEN,
             );
 
             if (! $fix) {
