@@ -13,7 +13,6 @@ This coding standard is based on [PSR-1](https://github.com/php-fig/fig-standard
 with some noticeable exceptions/differences/extensions based on best-practices adopted by Symfony, Doctrine, and the wider community:
 
 - Keep the nesting of control structures per method as small as possible
-- Align equals (``=``) signs in assignments
 - Add spaces around a concatenation operator ``$foo = 'Hello ' . 'World!';``
 - Add spaces between assignment, control and return statements
 - Add spaces after the colon in return type declaration ``function (): void {}``
