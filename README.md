@@ -25,6 +25,7 @@ with some noticeable exceptions/differences/extensions based on best-practices a
 - Don't use ``@author``, ``@since`` and similar annotations that duplicate Git information
 - Use parentheses when creating new instances that do not require arguments ``$foo = new Foo()``
 - Use Null Coalesce Operator ``$foo = $bar ?? $baz``
+- Use Null Safe Object Operator ``$foo = $object?->property``
 - Prefer early exit over nesting conditions or using else
 - Always use fully-qualified global functions (without needing `use function` statements)
 - Forbids the use of `\DateTime`
