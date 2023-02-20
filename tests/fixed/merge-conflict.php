@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-<<  << <<< HEAD
+<< << <<< HEAD
 $foo = 'bar';
 =======
 $bar = 'bar';

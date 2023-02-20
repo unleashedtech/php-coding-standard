@@ -7,15 +7,15 @@ tests/input/array_indentation.php                     10      0
 tests/input/assignment-operators.php                  4       0
 tests/input/binary_operators.php                      9       0
 tests/input/class-references.php                      10      0
-tests/input/concatenation_spacing.php                 49      0
+tests/input/concatenation_spacing.php                 54      0
 tests/input/constants-no-lsb.php                      2       0
-tests/input/constants-var.php                         4       0
-tests/input/ControlStructures.php                     17      2
-tests/input/doc-comment-spacing.php                   16      0
+tests/input/constants-var.php                         3       0
+tests/input/ControlStructures.php                     18      2
+tests/input/doc-comment-spacing.php                   17      0
 tests/input/doctrine-migration.php                    18      6
 tests/input/duplicate-assignment-variable.php         1       0
-tests/input/EarlyReturn.php                           6       0
-tests/input/example-class.php                         38      0
+tests/input/EarlyReturn.php                           7       0
+tests/input/example-class.php                         46      0
 tests/input/forbidden-comments.php                    14      0
 tests/input/forbidden-functions.php                   13      0
 tests/input/ForbiddenClasses.php                      7       0
@@ -26,15 +26,16 @@ tests/input/inline_type_hint_assertions.php           7       0
 tests/input/LowCaseTypes.php                          3       0
 tests/input/merge-conflict.php                        6       0
 tests/input/namespaces-spacing.php                    12      0
-tests/input/NamingCamelCase.php                       7       0
+tests/input/NamingCamelCase.php                       10      0
 tests/input/negation-operator.php                     2       0
-tests/input/new_with_parentheses.php                  30      0
-tests/input/not_spacing.php                           8       0
+tests/input/new_with_parentheses.php                  27      0
+tests/input/not_spacing.php                           12      0
 tests/input/null_coalesce_operator.php                3       0
 tests/input/optimized-functions.php                   1       0
-tests/input/return_type_on_closures.php               17      0
-tests/input/return_type_on_methods.php                13      0
-tests/input/semicolon_spacing.php                     3       0
+tests/input/PropertyDeclaration.php                   9       0
+tests/input/return_type_on_closures.php               26      0
+tests/input/return_type_on_methods.php                22      0
+tests/input/semicolon_spacing.php                     4       0
 tests/input/single-line-array-spacing.php             5       0
 tests/input/spread-operator.php                       10      0
 tests/input/static-closures.php                       1       0
@@ -42,16 +43,16 @@ tests/input/strict-functions.php                      4       0
 tests/input/test-case.php                             7       0
 tests/input/trailing_comma_on_array.php               1       0
 tests/input/traits-uses.php                           12      0
-tests/input/type-hints.php                            5       0
+tests/input/type-hints.php                            6       0
 tests/input/UnusedVariables.php                       2       0
 tests/input/use-function.php                          2       0
 tests/input/use-ordering.php                          9       0
 tests/input/useless-semicolon.php                     2       0
-tests/input/UselessConditions.php                     23      0
+tests/input/UselessConditions.php                     24      0
 ----------------------------------------------------------------------
-A TOTAL OF 429 ERRORS AND 9 WARNINGS WERE FOUND IN 45 FILES
+A TOTAL OF 478 ERRORS AND 9 WARNINGS WERE FOUND IN 46 FILES
 ----------------------------------------------------------------------
-PHPCBF CAN FIX 337 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX 387 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
 ----------------------------------------------------------------------
 
 

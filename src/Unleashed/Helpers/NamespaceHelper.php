@@ -13,9 +13,9 @@ use PHP_CodeSniffer\Files\File;
  */
 final class NamespaceHelper
 {
-    public static function getFirstNamespacePointer(File $phpcsFile): ?int
+    public static function getFirstNamespacePointer(File $phpcsFile): int|null
     {
-        $lazyValue = static function () use ($phpcsFile): ?int {
+        $lazyValue = static function () use ($phpcsFile): int|null {
             $token = $phpcsFile->findNext(T_NAMESPACE, 0);
 
             return $token === false ? null : $token;

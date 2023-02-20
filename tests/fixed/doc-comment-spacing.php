@@ -25,7 +25,7 @@ class Test
      * @psalm-var list<mixed>
      * @phpstan-var array<mixed>
      */
-    public $foo = [];
+    public array $foo = [];
 
     /**
      * Description

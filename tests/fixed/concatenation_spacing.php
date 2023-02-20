@@ -8,11 +8,11 @@ $string = 'Doctrine' . 'rulez';
 $string = 'Doctrine' . 'rulez';
 
 $doctrine = 'Doctrine';
-$rulez    = 'rulez';
-$string   = $doctrine . $rulez;
-$string   = $doctrine . $rulez;
-$string   = $doctrine . $rulez;
-$string   = $doctrine . $rulez;
+$rulez = 'rulez';
+$string = $doctrine . $rulez;
+$string = $doctrine . $rulez;
+$string = $doctrine . $rulez;
+$string = $doctrine . $rulez;
 
 $string = 'Doctrine' . $rulez;
 $string = 'Doctrine' . $rulez;

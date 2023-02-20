@@ -1,114 +1,129 @@
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+
 name: "Test"
 
 on:
-    pull_request:
-    push:
-    schedule:
-        - cron: "0 8 * * *"
+  pull_request:
+  push:
+  schedule:
+    - cron: "0 8 * * *"
 
 jobs:
-    phpcs:
-        name: PHPCS
-        runs-on: ubuntu-18.04
+  phpcs:
+    name: "PHPCS"
 
-        steps:
-            - uses: actions/checkout@v2
+    runs-on: "ubuntu-22.04"
 
-            - uses: shivammathur/setup-php@v2
-              with:
-                  php-version: 7.2
-                  extensions: curl
-                  coverage: none
-                  tools: composer:v2, cs2pr
+    steps:
+      - uses: "actions/checkout@v2"
 
-            - run: composer update --no-interaction --no-progress
+      - uses: "shivammathur/setup-php@v2"
+        with:
+          coverage: none
+          php-version: 8.1
+          extensions: curl
+          tools: composer:v2, cs2pr
 
-            - run: vendor/bin/phpcs -q --report=checkstyle | cs2pr
+      - run: "composer update --no-interaction --no-progress --no-suggest"
 
-    validate-against-schema:
-        name: Validate against schema
-        runs-on: ubuntu-18.04
+      - run: "vendor/bin/phpcs -q --report=checkstyle | cs2pr"
 
-        steps:
-            - uses: actions/checkout@v2
+  validate-against-schema:
+    name: "Validate against schema"
 
-            - uses: shivammathur/setup-php@v2
-              with:
-                  php-version: 7.1
-                  extensions: curl
-                  coverage: none
-                  tools: composer:v2
+    runs-on: "ubuntu-22.04"
 
-            - run: composer update --no-interaction --no-progress
+    steps:
+      - uses: actions/checkout@v2
 
-            - name: Build Docker image
-              uses: ./.github/workflows/validate-against-schema
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.1
+          extensions: curl
+          coverage: none
+          tools: composer:v2
 
-            - name: Lint XML configuration files
-              uses: ./.github/workflows/validate-against-schema
-              with:
-                  args: xmllint --noout --schema vendor/squizlabs/php_codesniffer/phpcs.xsd src/Unleashed/ruleset.xml
+      - run: "composer update --no-interaction --no-progress --no-suggest"
 
-    phpunit:
-        name: PHPUnit
-        runs-on: ubuntu-18.04
-        strategy:
-            matrix:
-                php-version: ['7.1', '7.2', '7.3', '7.4', '8.0']
+      - name: "Build Docker image"
+        uses: "./.docker/validate-against-schema"
 
-        steps:
-            - uses: actions/checkout@v2
+      - name: "Lint XML configuration files"
+        uses: "./.docker/validate-against-schema"
+        with:
+          args: "xmllint --noout --schema vendor/squizlabs/php_codesniffer/phpcs.xsd src/Unleashed/ruleset.xml"
 
-            - uses: shivammathur/setup-php@v2
-              with:
-                  php-version: "${{ matrix.php-version }}"
-                  extensions: curl
-                  coverage: none
+  phpunit:
+    name: "PHPUnit"
+    runs-on: "ubuntu-22.04"
+    strategy:
+      matrix:
+        php-version:
+          - "8.0"
+          - "8.1"
 
-            - run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+    steps:
+      - uses: "actions/checkout@v2"
 
-            - run: composer update --no-interaction --no-progress
+      - uses: "shivammathur/setup-php@v2"
+        with:
+          coverage: none
+          php-version: "${{ matrix.php-version }}"
+          extensions: curl
 
-            - run: ./vendor/bin/simple-phpunit
+      - run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
-    test-report:
-        name: Test report
-        runs-on: ubuntu-18.04
-        strategy:
-            matrix:
-                php-version: ['7.1', '7.2', '7.3', '7.4', '8.0']
+      - run: composer update --no-interaction --no-progress
 
-        steps:
-            - uses: actions/checkout@v2
+      - run: ./vendor/bin/simple-phpunit
 
-            - uses: shivammathur/setup-php@v2
-              with:
-                  php-version: "${{ matrix.php-version }}"
-                  extensions: curl
-                  coverage: none
+  test-report:
+    name: "Test report"
 
-            - run: composer update --no-interaction --no-progress
+    runs-on: "ubuntu-22.04"
 
-            - name: Test reports
-              run: make test-report
+    strategy:
+      matrix:
+        php-version:
+          - "8.0"
+          - "8.1"
 
-    test-fixes:
-        name: Test fixes
-        runs-on: ubuntu-18.04
-        strategy:
-            matrix:
-                php-version: ['7.1', '7.2', '7.3', '7.4', '8.0']
+    steps:
+      - uses: "actions/checkout@v2"
 
-        steps:
-            - uses: actions/checkout@v2
+      - uses: "shivammathur/setup-php@v2"
+        with:
+          php-version: "${{ matrix.php-version }}"
+          extensions: curl
+          coverage: none
 
-            - uses: shivammathur/setup-php@v2
-              with:
-                  php-version: "${{ matrix.php-version }}"
-                  extensions: curl
-                  coverage: none
+      - run: "composer update --no-interaction --no-progress --no-suggest"
 
-            - run: composer update --no-interaction --no-progress
+      - name: "Test reports"
+        run: "make test-report"
 
-            - name: Test fixes
-              run: make test-fix
+  test-fixes:
+    name: "Test fixes"
+
+    runs-on: "ubuntu-22.04"
+
+    strategy:
+      matrix:
+        php-version:
+          - "8.0"
+          - "8.1"
+
+    steps:
+      - uses: "actions/checkout@v2"
+
+      - uses: "shivammathur/setup-php@v2"
+        with:
+          php-version: "${{ matrix.php-version }}"
+          extensions: curl
+          coverage: none
+
+      - run: "composer update --no-interaction --no-progress --no-suggest"
+
+
+      - name: "Test fixes"
+        run: "make test-fix"
