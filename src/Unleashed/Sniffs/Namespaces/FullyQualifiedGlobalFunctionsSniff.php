@@ -78,9 +78,13 @@ final class FullyQualifiedGlobalFunctionsSniff implements Sniff
      *
      * @link https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/Generic/Sniffs/PHP/ForbiddenFunctionsSniff.php#L118
      *
+     * @param int $stackPtr
+     *
      * {@inheritDoc}
+     *
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
      */
-    public function process(File $phpcsFile, $stackPtr)
+    public function process(File $phpcsFile, $stackPtr): void
     {
         // Abort if we're not in namespaced code
         $firstNamespacePointer = NamespaceHelper::getFirstNamespacePointer($phpcsFile);
