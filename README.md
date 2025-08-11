@@ -1,3 +1,10 @@
+# ! IMPORTANT !
+
+We are moving this repository to [jonnyeom/php-coding-standard](https://github.com/jonnyeom/php-coding-standard) for it is no longer maintained by Unleashed.
+It will maintain the original name and will be accessible through composer with, `unleashed/php-coding-standard`
+
+The transition is expected to be finished and live by August 25, 2025. Thank You!
+
 # Unleashed Technologies PHP_CodeSniffer Coding Standard
 
 [![Latest Version](https://img.shields.io/packagist/v/unleashedtech/php-coding-standard.svg?style=flat-square)](https://packagist.org/packages/unleashedtech/php-coding-standard)
