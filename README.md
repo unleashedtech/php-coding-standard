@@ -1,6 +1,6 @@
 # ! IMPORTANT !
 
-We are moving this repository to [jonnyeom/php-coding-standard]([url](https://github.com/jonnyeom/php-coding-standard)) for it is no longer maintained by Unleashed.  
+We are moving this repository to [jonnyeom/php-coding-standard](https://github.com/jonnyeom/php-coding-standard) for it is no longer maintained by Unleashed.  
 It will maintain the original name and will be accessible through composer with, `unleashed/php-coding-standard`
 
 The transition is expected to be finished and live by August 25, 2025. Thank You!
